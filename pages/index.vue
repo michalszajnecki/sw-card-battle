@@ -8,7 +8,16 @@ useHead({
 
 <template>
   <div>
-    <p>welcome <Nuxt-link to="/login">go to login</Nuxt-link></p>
+
+    <h1>star wars battle</h1>
+    <p>quick introduction</p>
+    <v-btn prepend-icon="mdi-arrow-down-bold" to="/login" nuxt stacked>
+      START GAME
+    </v-btn>
+
+    <p>legal stuff</p>
+
+
   </div>
 </template>
 

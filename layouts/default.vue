@@ -12,6 +12,10 @@ if (process.client) {
   });
 }
 
+import { useUserData } from '../stores/userData';
+
+const userDataStore = useUserData()
+
 
 </script>
 
@@ -19,14 +23,16 @@ if (process.client) {
   <div>
     <v-layout class="rounded rounded-md">
       <v-app-bar :elevation="8">
-        <template v-slot:prepend>
+        <!-- <template v-slot:prepend>
           <v-app-bar-nav-icon></v-app-bar-nav-icon>
-        </template>
+        </template> -->
 
-        <v-app-bar-title>Application Bar</v-app-bar-title>
+        <v-app-bar-title>STAR WARS BATTLE</v-app-bar-title>
 
         <template v-slot:append>
-          <v-btn icon="mdi-heart"></v-btn>
+          <v-btn icon="mdi-heart">
+            {{ userDataStore.stats.won }}
+          </v-btn>
 
           <v-btn icon="mdi-magnify"></v-btn>
 

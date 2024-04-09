@@ -9,8 +9,8 @@ export default defineNuxtConfig({
                 { name: 'theme-color', content: '#15738B' },
             ],
         },
-        layoutTransition: { name: 'layout', mode: 'out-in' },
-        pageTransition: { name: 'page', mode: 'out-in' },
+        // layoutTransition: { name: 'layout', mode: 'out-in' },
+        // pageTransition: { name: 'page', mode: 'out-in' },
     },
     devServer: {
         port: 8117,
@@ -33,9 +33,7 @@ export default defineNuxtConfig({
                 config.plugins.push(vuetify({ autoImport: true }));
             });
         },
-        // ...
         '@pinia/nuxt',
-        // 'nuxt-graphql-request',
     ],
     pinia: {
         storesDirs: ['./stores/**'],
