@@ -86,31 +86,21 @@ onMounted(() => {
     {{ userDeckForSelectedResource }}
 
 
-    <div v-for="(card, index) in userDeckForSelectedResource" :key="index"
-      @click="battle(generateCardData('people', card).attack)">
-      <v-chip>
-
-        {{ generateCardData('people', card).height }}
-      </v-chip>
-      <v-chip>
-        {{ generateCardData('people', card).attack }}
-      </v-chip>
-      <v-chip>
-        {{ generateCardData('people', card).name }}
-      </v-chip>
-      <v-chip>
-        {{ generateCardData('people', card).description }}
-      </v-chip>
-      <v-chip>
-        {{ generateCardData('people', card).uid }}
-      </v-chip>
-
-
-
-
+    <div class="my-deck">
+      <CardContainer v-for="(cardId, index) in userDeckForSelectedResource" :key="index"
+        @click="battle(generateCardData('people', cardId).attack)" :card-index="index" :card-id="cardId"
+        :card-type="'people'" />
     </div>
+
+
+
+
 
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.my-deck {
+  display: flex;
+}
+</style>

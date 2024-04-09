@@ -2,10 +2,9 @@
 
 
 useHead({
-  title: 'Login'
+  title: 'My settings'
 })
 
-const markus = ref(1)
 </script>
 
 <template>
