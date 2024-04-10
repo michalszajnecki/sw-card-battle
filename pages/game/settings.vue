@@ -1,6 +1,11 @@
 <script setup lang="ts">
 
-
+definePageMeta({
+  layout: 'game',
+  middleware: [
+    'auth'
+  ]
+});
 useHead({
   title: 'My settings'
 })

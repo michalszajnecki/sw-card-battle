@@ -1,19 +1,29 @@
-import people from '../tools/people.json';
-import planets from '../tools/planets.json';
-import starships from '../tools/starships.json';
+import { staticSWData } from './getStaticSWData';
 
-export function generateCardData(resourceType, cardId) {
-    console.log('generate' + resourceType);
-    console.log(people);
-
-    const cardData = people[cardId];
-
-    return cardData;
+interface Card {
+    description: string;
+    attack: number;
+    uid: string;
+    name: string;
 }
 
-export function getCardForComputerPlayer(resourceType) {
-    const randomIndex = Math.floor(Math.random() * people.length);
-    const cardData = people[randomIndex];
+export function generateCardData(resourceType: string, cardId): Card {
+    return staticSWData[resourceType][cardId];
+}
 
-    return cardData;
+function getRandomCard(resourceType: string): Card {
+    const randomIndex = Math.floor(Math.random() * staticSWData[resourceType].length);
+    return staticSWData[resourceType][randomIndex];
+}
+
+export function buildDeckForPlayer(resourceType: string): Card[] {
+    const deck: Card[] = [];
+    for (let index = 0; index < 5; index++) {
+        deck[index] = getRandomCard(resourceType);
+    }
+    return deck;
+}
+
+export function getCardForComputerPlayer(resourceType: string): Card {
+    return getRandomCard(resourceType);
 }

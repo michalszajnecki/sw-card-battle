@@ -29,28 +29,24 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="default-layout">
+  <div class="game-layout">
     <v-layout class="rounded rounded-md">
-      <!-- <v-app-bar :elevation="8">
-         <template v-slot:prepend>
-          <v-app-bar-nav-icon></v-app-bar-nav-icon>
-        </template>
+      <v-app-bar :elevation="8">
+        <v-app-bar-title class="app-title">STAR WARS BATTLE CARDS</v-app-bar-title>
 
-<v-app-bar-title>STAR WARS BATTLE</v-app-bar-title>
-
-<template v-slot:append>
+        <template v-slot:append>
           <v-btn icon="mdi-heart">
             {{ userDataStore.stats.won }}
           </v-btn>
 
-          <v-btn icon="mdi-magnify"></v-btn>
+          <v-btn icon="mdi-cog"></v-btn>
 
           <v-btn icon="mdi-dots-vertical"></v-btn>
         </template>
-</v-app-bar> -->
+      </v-app-bar>
 
 
-      <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
+      <v-main class="d-flex align-center justify-center">
         <NuxtPage />
 
       </v-main>
@@ -73,7 +69,7 @@ onMounted(() => {
 html,
 body,
 #__nuxt,
-.default-layout {
+.game-layout {
   margin: 0;
   width: 100%;
   min-height: 100vh;
@@ -91,8 +87,16 @@ h1 {
   font-style: normal;
 }
 
-.default-layout {
-  background-image: url('/login-screen.webp');
-  background-size: cover;
+.game-layout {
+  background: linear-gradient(180deg, #292847, #0E0D1F);
+}
+
+.v-toolbar-title.app-title {
+  font-family: "Poller One", serif;
+  color: #FFF;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: -.1rem;
+  user-select: none;
 }
 </style>

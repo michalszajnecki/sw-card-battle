@@ -22,7 +22,7 @@ async function getPeople() {
             return {
                 description: data.result.description,
                 uid: data.result.uid,
-                attack: data.result.properties.height === 'unknown' ? '0' : data.result.properties.height,
+                attack: data.result.properties.height === 'unknown' ? 0 : Number(data.result.properties.height),
                 name: data.result.properties.name,
             };
         }),
@@ -35,10 +35,13 @@ async function getStarships() {
     const starships = await Promise.all(
         data.results.map(async (shipData) => {
             const { data } = await axios.get(shipData.url);
+            // Fix for inconsistent data in one starship
+            data.result.properties.length = data.result.properties.length.replace(',', '');
+
             return {
                 description: data.result.description,
                 uid: data.result.uid,
-                attack: data.result.properties.length === 'unknown' ? '0' : data.result.properties.length,
+                attack: data.result.properties.length === 'unknown' ? 0 : Number(data.result.properties.length),
                 name: data.result.properties.name,
             };
         }),
@@ -54,7 +57,7 @@ async function getPlanets() {
             return {
                 description: data.result.description,
                 uid: data.result.uid,
-                attack: data.result.properties.population === 'unknown' ? '0' : data.result.properties.population,
+                attack: data.result.properties.population === 'unknown' ? 0 : Number(data.result.properties.population),
                 name: data.result.properties.name,
             };
         }),
