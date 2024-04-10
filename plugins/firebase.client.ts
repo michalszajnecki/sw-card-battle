@@ -17,8 +17,8 @@ import {
 export default defineNuxtPlugin(async (nuxtApp) => {
     const config = useRuntimeConfig();
 
-    console.log(config.FB_API_KEY);
-    console.log(process.env.FB_API_KEY);
+    console.log('con' + config.FB_API_KEY);
+    console.log('proc' + process.env.FB_API_KEY);
 
     const firebaseConfig = {
         apiKey: config.FB_API_KEY,
