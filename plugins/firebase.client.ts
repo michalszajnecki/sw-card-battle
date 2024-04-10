@@ -17,6 +17,7 @@ import {
 export default defineNuxtPlugin(async (nuxtApp) => {
     const config = useRuntimeConfig();
 
+    console.log(config);
     console.log('con' + config.FB_API_KEY);
     console.log('proc' + process.env.FB_API_KEY);
 
