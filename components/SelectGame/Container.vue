@@ -60,7 +60,7 @@ async function createRoom() {
       <v-icon icon="mdi-sword-cross"></v-icon> Single Player
     </v-btn>
     <v-btn class="lobby-game-type-btn" size="large" variant="tonal" @click="multiplayerDialog = true">
-      <v-icon icon="mdi-sword-cross"></v-icon> Join Multiplayer
+      <v-icon icon="mdi-sword-cross"></v-icon> Host Multiplayer Game
     </v-btn>
   </div>
 
@@ -83,12 +83,12 @@ async function createRoom() {
 .lobby-game-type {
   display: flex;
   justify-content: space-around;
-  max-width: 40rem;
+  max-width: 46rem;
   margin: auto;
   flex-wrap: wrap;
 
   .lobby-game-type-btn {
-    width: 18rem;
+    width: 21rem;
     margin: 1rem;
     box-shadow: 0.2rem 0.2rem #FC0858 !important;
 
