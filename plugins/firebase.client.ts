@@ -17,25 +17,25 @@ import {
 export default defineNuxtPlugin(async (nuxtApp) => {
     const config = useRuntimeConfig();
 
-    // const firebaseConfig = {
-    //     apiKey: config.FB_API_KEY,
-    //     authDomain: config.FB_AUTH_DOMAIN,
-    //     projectId: config.FB_PROJECT_ID,
-    //     storageBucket: config.FB_STORAGE_BUCKET,
-    //     messagingSenderId: config.FB_MESSAGING_SENDER_ID,
-    //     appId: config.FB_APP_ID,
-    //     measurementId: config.FB_MEASUREMENT_ID,
-    // };
-
     const firebaseConfig = {
-        apiKey: 'AIzaSyAgMvjvTlx2bgU8MCs_Q3Z-SvboSuSd8aI',
-        authDomain: 'sw-battle-emarts.firebaseapp.com',
-        projectId: 'sw-battle-emarts',
-        storageBucket: 'sw-battle-emarts.appspot.com',
-        messagingSenderId: '988381200091',
-        appId: '1:988381200091:web:68fe19f409f322f852d6fe',
-        measurementId: 'G-GTP9WDE895',
+        apiKey: config.FB_API_KEY,
+        authDomain: config.FB_AUTH_DOMAIN,
+        projectId: config.FB_PROJECT_ID,
+        storageBucket: config.FB_STORAGE_BUCKET,
+        messagingSenderId: config.FB_MESSAGING_SENDER_ID,
+        appId: config.FB_APP_ID,
+        measurementId: config.FB_MEASUREMENT_ID,
     };
+
+    // const firebaseConfig = {
+    //     apiKey: 'AIzaSyAgMvjvTlx2bgU8MCs_Q3Z-SvboSuSd8aI',
+    //     authDomain: 'sw-battle-emarts.firebaseapp.com',
+    //     projectId: 'sw-battle-emarts',
+    //     storageBucket: 'sw-battle-emarts.appspot.com',
+    //     messagingSenderId: '988381200091',
+    //     appId: '1:988381200091:web:68fe19f409f322f852d6fe',
+    //     measurementId: 'G-GTP9WDE895',
+    // };
 
     const app = initializeApp(firebaseConfig);
 
