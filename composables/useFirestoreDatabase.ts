@@ -61,19 +61,13 @@ export default function () {
         return docSnap.data();
     };
 
-    const updateUserData = async () => {
+    const updateUserData = async (uid: string, stats) => {
         const colRef = collection($firestore, 'userStats');
+        const docRef = doc(colRef, uid);
+        console.log(uid);
+        console.log(stats);
 
-        const stats = {
-            uid: user.value.uid,
-            won: 0,
-            lost: 0,
-            lastMatches: [{ won: true, timestamp: new Date().getTime() }],
-        };
-
-        const docRef = await addDoc(colRef, stats);
-
-        return docRef;
+        return await setDoc(docRef, stats);
     };
 
     const createNewGameroom = async (uid: string, resourceType: string, roomName: string) => {
@@ -112,6 +106,7 @@ export default function () {
         addNewUserData,
         getUserData,
         createNewGameroom,
+        updateUserData,
         getRooms,
     };
 }

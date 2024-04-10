@@ -25,6 +25,13 @@ export const useBattleData = defineStore('battleData', {
       if (gameData.enemyId === 'computer') {
         this.enemyId = gameData.enemyId
         this.enemyStatus = 'ready'
+        this.gameRoomId = 'singlePlayerRoom'
+        // TODO: add gameroom generator
+      }
+      if (gameData.enemyId === 'player') {
+        this.enemyId = gameData.enemyId
+        this.enemyStatus = 'ready'
+        this.gameRoomId = gameData.enemyId
         // TODO: add gameroom generator
       }
       return `/game/${this.gameRoomId}`

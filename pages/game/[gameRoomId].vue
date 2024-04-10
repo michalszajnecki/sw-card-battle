@@ -34,7 +34,11 @@ function updateTimer() {
 }
 const showBattleEndScreen = ref(false)
 const battleResult = ref(true)
-function battle(card) {
+
+const { user, registerUser, loginUser } = useFirebaseAuth()
+const { addNewUserData, getUserData, updateUserData } = useFirestoreDatabase()
+
+async function battle(card) {
 
   selectedCard.value = card
   showBattleEndScreen.value = true
@@ -49,7 +53,11 @@ function battle(card) {
   }
 
 
-  userDataStore.captureBattleResult(battleResult.value)
+  const currentLocalStats = await userDataStore.captureBattleResult(battleResult.value)
+
+  console.log({ currentLocalStats });
+
+  await updateUserData(user.value.uid, currentLocalStats)
 }
 
 function leaveBattleRoom() {
