@@ -6,7 +6,7 @@ import { useUserData } from '../stores/userData';
 const rooms = ref()
 const battleDataStore = useBattleData()
 const userDataStore = useUserData()
-const { createNewGameroom, getRooms, getUserData } = useFirestoreDatabase()
+const { createNewGameroom, getRooms, updateGameRoom } = useFirestoreDatabase()
 const { user, registerUser, loginUser } = useFirebaseAuth()
 
 async function joinRoom(room) {
@@ -14,6 +14,8 @@ async function joinRoom(room) {
     enemyId: room.id,
     resource: room.resourceType,
   })
+
+  updateGameRoom(user.value.uid, room.id)
 
   navigateTo(newRoutePath)
 }
@@ -34,7 +36,9 @@ function formatDate(timestamp: number) {
 
 <template>
   <div class="lobby-list">
-    <div class="lobby-list-item" v-for="(item, i) in rooms" :key="i">
+    <div class="lobby-list-item" v-for="(item, i) in rooms" :key="i" :class="{
+      'lobby-list-item--full': item.full
+    }">
       <span class="room-created">
         Created: {{ formatDate(item.created) }}
       </span>
@@ -44,7 +48,7 @@ function formatDate(timestamp: number) {
       'av-people': item.resourceType === 'people',
       'av-starships': item.resourceType === 'starships',
       'av-planets': item.resourceType === 'planets',
-    }"></div><span>Join battle</span>
+    }"></div><span>{{ item.full ? 'Battle in progress...' : 'Join battle' }}</span>
       </button>
     </div>
   </div>
@@ -61,15 +65,21 @@ function formatDate(timestamp: number) {
   border-radius: 1rem;
   padding: 2rem;
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   box-shadow: 0 1rem 5rem -2rem #FC0858, inset 0 -1rem 6rem -4rem #FC0858;
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: 2rem;
+  width: 100%;
   max-width: 24rem;
   transition: all ease .3s;
+
+  &.lobby-list-item--full {
+    pointer-events: none;
+    opacity: .7;
+  }
 
   &:hover {
     box-shadow: 0 1rem 5rem -2rem #FC0858, inset 0 -1rem 9rem -4rem #FC0858

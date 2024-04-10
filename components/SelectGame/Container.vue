@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { useBattleData } from '../stores/battleData';
-import { useUserData } from '../stores/userData';
 
 const multiplayerDialog = ref(false)
 const singlePlayerDialog = ref(false)
 const battleDataStore = useBattleData()
-const userDataStore = useUserData()
-const { createNewGameroom, getRooms, getUserData } = useFirestoreDatabase()
-const { user, registerUser, loginUser } = useFirebaseAuth()
+const { createNewGameroom } = useFirestoreDatabase()
+const { user } = useFirebaseAuth()
 
 async function startSinglePlayerGame(resourceType: string) {
   singlePlayerDialog.value = false
@@ -19,11 +17,14 @@ async function startSinglePlayerGame(resourceType: string) {
   navigateTo(newRoutePath)
 }
 
-async function createRoom() {
-  console.log(user.value.uid);
-  createNewGameroom(user.value.uid, 'people', 'Play with me pliz')
-  rooms.value = await getRooms()
-  console.log(rooms.value);
+async function createRoom(resourceType: string) {
+  multiplayerDialog.value = false
+  createNewGameroom(user.value.uid, resourceType)
+  const newRoutePath = await battleDataStore.assignNewGameRoom({
+    resource: resourceType,
+    enemyId: user.value.uid,
+  })
+  navigateTo(newRoutePath)
 }
 </script>
 
