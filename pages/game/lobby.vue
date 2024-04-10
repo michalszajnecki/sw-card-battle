@@ -57,18 +57,7 @@ async function createRoom() {
 }
 
 
-const won = ref(0)
-const lost = ref(0)
-const calculatedRatio = ref(0)
-async function paintWinLoseRatio(ratio) {
-  calculatedRatio.value = ratio.won / ratio.lost
-  if (ratio.won + ratio.lost === 0) {
-    calculatedRatio.value = 0
-    return
-  }
 
-  calculatedRatio.value = Math.floor(ratio.won / ratio.lost)
-}
 // createNewGameroom
 
 // uid: string, resourceType: string
@@ -105,51 +94,20 @@ function formatDate(timestamp: number) {
   // Construct the time string in HH:MM format
   return `${formattedHours}:${formattedMinutes}`;
 }
+
+
 </script>
 
 <template>
   <div class="lobby">
 
-    <div class="chart">
-      <h1>{{ calculatedRatio }}</h1>
-      <div class="pie"></div>
-    </div>
-
-    <v-dialog v-model="singlePlayerDialog" width="auto">
-      <v-card max-width="400" prepend-icon="mdi-update"
-        text="Test your luck with battle agains computer. Select resource type, and join private battle room."
-        title="Play against computer">
-        <template v-slot:actions>
-          <v-btn class="ms-auto" text="Planet" @click="startSinglePlayerGame('planets')"></v-btn>
-          <v-btn class="ms-auto" text="People" @click="startSinglePlayerGame('people')"></v-btn>
-          <v-btn class="ms-auto" text="Starship" @click="startSinglePlayerGame('starships')"></v-btn>
-        </template>
-      </v-card>
-    </v-dialog>
-
-
-    <v-dialog v-model="dialog" width="auto">
-      <v-card max-width="400" prepend-icon="mdi-update"
-        text="Your application will relaunch automatically after the update is complete." title="Update in progress">
-        <template v-slot:actions>
-          <v-btn variant="elevated" class="ms-auto" text="Planet" @click="startSinglePlayerGame('planet')"></v-btn>
-          <v-btn variant="elevated" class="ms-auto" text="People" @click="startSinglePlayerGame('people')"></v-btn>
-          <v-btn variant="elevated" class="ms-auto" text="Starship" @click="startSinglePlayerGame('starship')"></v-btn>
-        </template>
-      </v-card>
-    </v-dialog>
 
 
 
 
-    <div class="lobby-game-type">
-      <v-btn size="large" @click="singlePlayerDialog = true">
-        <v-icon icon="mdi-sword-cross"></v-icon> Single Player
-      </v-btn>
-      <v-btn size="large" variant="tonal" @click="createRoom()">
-        <v-icon icon="mdi-sword-cross"></v-icon> Join Multiplayer
-      </v-btn>
-    </div>
+    <SelectGameContainer />
+
+
 
     <div class="lobby-list-header">
       <h1 class="lobby-list-header-text">Avaiable game rooms</h1>
@@ -263,42 +221,5 @@ button.lobby-list-item-btn {
 button.lobby-list-item-btn span {
   padding: 0 2rem 0 1rem;
   text-transform: uppercase;
-}
-
-
-.chart {
-  width: 400px;
-  height: 200px;
-  border: 1px solid #000;
-  position: relative;
-
-  .bar {
-    position: absolute;
-    bottom: 0;
-    width: 100px;
-    background-color: green;
-    /* Default color */
-    transition: height 0.5s ease;
-  }
-
-  .losses {
-    left: 150px;
-    background-color: red;
-  }
-
-  .label {
-    position: absolute;
-    bottom: -20px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-  }
-
-  .pie {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    background: conic-gradient(deepskyblue 0% 25%,
-        orangered 25% 100%);
-  }
 }
 </style>

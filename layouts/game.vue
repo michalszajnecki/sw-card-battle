@@ -35,13 +35,7 @@ onMounted(() => {
         <v-app-bar-title class="app-title">STAR WARS BATTLE CARDS</v-app-bar-title>
 
         <template v-slot:append>
-          W/L games [{{ userDataStore.stats.won }} / {{ userDataStore.stats.lost }}]
-          <v-btn icon="mdi-heart">
-          </v-btn>
-
-          <v-btn icon="mdi-cog"></v-btn>
-
-          <v-btn icon="mdi-dots-vertical"></v-btn>
+          <StatsContainer />
         </template>
       </v-app-bar>
 

@@ -21,7 +21,7 @@ onMounted(() => {
   }
 
   50% {
-    top: 14rem;
+    top: 4rem;
   }
 
   100% {
@@ -36,14 +36,14 @@ onMounted(() => {
 
 
   100% {
-    top: 19rem;
+    top: 7rem;
   }
 }
 
 .card {
   background-image: url('/card-back.webp');
-  width: 10rem;
-  height: 12.5rem;
+  width: 9rem;
+  height: 14.5rem;
   border-radius: 1rem;
   background-size: 150%;
   background-position: center;
@@ -58,35 +58,34 @@ onMounted(() => {
 
 
   &.card-0 {
-    animation-delay: 5s;
-    transform: rotate(210deg);
-
+    animation-delay: 1s;
+    transform: rotate(190deg);
+    left: 4rem;
   }
 
   &.card-1 {
-    animation-delay: 7s;
-    transform: rotate(195deg);
+    animation-delay: 2s;
+    transform: rotate(185deg);
+    left: 2rem;
 
   }
 
   &.card-2 {
-    animation-delay: 15s;
+    animation-delay: 5s;
     transform: rotate(180deg);
     animation: selectedCard 2s forwards;
-    scale: 1.25;
-
   }
 
   &.card-3 {
-    animation-delay: 11s;
-    transform: rotate(165deg);
-
+    animation-delay: 3s;
+    transform: rotate(175deg);
+    left: -2rem;
   }
 
   &.card-4 {
-    animation-delay: 13s;
-    transform: rotate(150deg);
-
+    animation-delay: 4s;
+    transform: rotate(170deg);
+    left: -4rem;
   }
 
 }

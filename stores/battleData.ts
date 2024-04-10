@@ -26,34 +26,12 @@ export const useBattleData = defineStore('battleData', {
         this.enemyId = gameData.enemyId
         this.enemyStatus = 'ready'
         this.gameRoomId = 'singlePlayerRoom'
-        // TODO: add gameroom generator
-      }
-      if (gameData.enemyId === 'player') {
+      } else if (gameData.enemyId === 'player') {
         this.enemyId = gameData.enemyId
-        this.enemyStatus = 'ready'
+        this.enemyStatus = 'pending'
         this.gameRoomId = gameData.enemyId
-        // TODO: add gameroom generator
       }
       return `/game/${this.gameRoomId}`
-
-      // try {
-      //   const { data } = await axios.post(
-      //     `http://${process.client ? 'localhost' : 'fm-backend'}:8012/api/v1/getForecast`,
-      //     {
-      //       latitude: 51.7706,
-      //       longitude: 19.4739,
-      //     },
-      //   );
-      //   this.weatherData = data;
-      //   this.dailyWeatherData = data.dailyWeather;
-      //   this.currentWeatherData = data.hourlyWeather.find((item) => {
-      //     return areDatesEqual(new Date(), new Date(item.time));
-      //   });
-      //   return data;
-      // } catch (error) {
-      //   console.error('Error fetching weather data:', error);
-      //   throw error;
-      // }
     },
   },
 });
