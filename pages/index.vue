@@ -16,7 +16,7 @@ useHead({
       strategize, battle, and emerge victorious in this epic clash of heroes and villains.</p>
     <div class="cta-container">
 
-      <v-btn class="welcome-cta" prepend-icon="mdi-arrow-down-bold" to="/login" nuxt stacked>
+      <v-btn class="welcome-cta" prepend-icon="mdi-sword-cross" to="/login" nuxt stacked>
         START GAME
       </v-btn>
     </div>
@@ -42,6 +42,10 @@ useHead({
   top: 0;
   left: 0;
   // animation: showLoginPanel 2s forwards;
+
+  @media screen and (max-width: 580px) {
+    position: static;
+  }
 }
 
 .cta-container {
@@ -57,6 +61,11 @@ useHead({
   font-size: 1.4rem;
   height: auto;
   padding: 2rem;
+
+  @media screen and (max-width: 580px) {
+    margin: 5rem auto 10rem;
+
+  }
 }
 
 .welcome-header {
@@ -64,6 +73,11 @@ useHead({
   text-align: center;
   margin: 12rem auto 4rem;
   font-size: 3rem;
+
+  @media screen and (max-width: 580px) {
+    margin-top: 6rem;
+    font-size: 2.5rem;
+  }
 }
 
 .welcome-intro {
@@ -71,13 +85,16 @@ useHead({
   color: #fff;
   max-width: 80%;
   margin: auto;
+
+  @media screen and (max-width: 580px) {
+    font-size: 1.2rem;
+  }
 }
 
 .legal-stuff {
   color: #fff;
   font-size: 1rem;
   margin: 1rem;
-  position: absolute;
   bottom: 0;
 }
 </style>

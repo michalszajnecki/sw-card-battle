@@ -1,29 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useUserData } from '../stores/userData';
+import { calculateWinLossRatio, generateStyleObj } from '../../services/chartService'
 
 const userDataStore = useUserData()
 const statsDialog = ref(false)
 const statsPieStyle = ref({})
 const calculatedRatio = ref(0)
 
-async function paintWinLoseRatio(ratio) {
-  calculatedRatio.value = ratio.won / ratio.lost
-  if (ratio.won + ratio.lost === 0) {
-    calculatedRatio.value = 0
-    return
-  }
-
-  calculatedRatio.value = Math.floor((ratio.won / (ratio.won + ratio.lost)) * 100)
-}
-
 async function openStats() {
   const ratio = await userDataStore.getWonLostData()
-  paintWinLoseRatio(ratio)
-  const styleVal = `conic-gradient(#FC0858 0% ${calculatedRatio.value}%, #0818fc ${calculatedRatio.value}% 100%)`
-  statsPieStyle.value = {
-    'background': styleVal
-  }
+  calculatedRatio.value = calculateWinLossRatio(ratio)
+  statsPieStyle.value = generateStyleObj(calculatedRatio.value)
   statsDialog.value = !statsDialog.value
 }
 </script>
@@ -35,7 +23,7 @@ async function openStats() {
   <v-dialog v-model="statsDialog" width="auto">
     <v-card max-width="400">
       <template v-slot:default>
-        <h1 class="win-ratio">User win ratio</h1>
+        <h1 class="win-ratio">win-lose ratio</h1>
         <div class="chart">
           <h1 class="calculated-ratio">{{ calculatedRatio }}%</h1>
           <div class="pie" :style="statsPieStyle"></div>

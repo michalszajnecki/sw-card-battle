@@ -1,1 +1,576 @@
-[{"description":"A person within the Star Wars universe","uid":"1","attack":172,"name":"Luke Skywalker"},{"description":"A person within the Star Wars universe","uid":"2","attack":167,"name":"C-3PO"},{"description":"A person within the Star Wars universe","uid":"3","attack":96,"name":"R2-D2"},{"description":"A person within the Star Wars universe","uid":"4","attack":202,"name":"Darth Vader"},{"description":"A person within the Star Wars universe","uid":"5","attack":150,"name":"Leia Organa"},{"description":"A person within the Star Wars universe","uid":"6","attack":178,"name":"Owen Lars"},{"description":"A person within the Star Wars universe","uid":"7","attack":165,"name":"Beru Whitesun lars"},{"description":"A person within the Star Wars universe","uid":"8","attack":97,"name":"R5-D4"},{"description":"A person within the Star Wars universe","uid":"9","attack":183,"name":"Biggs Darklighter"},{"description":"A person within the Star Wars universe","uid":"10","attack":182,"name":"Obi-Wan Kenobi"},{"description":"A person within the Star Wars universe","uid":"11","attack":188,"name":"Anakin Skywalker"},{"description":"A person within the Star Wars universe","uid":"12","attack":180,"name":"Wilhuff Tarkin"},{"description":"A person within the Star Wars universe","uid":"13","attack":228,"name":"Chewbacca"},{"description":"A person within the Star Wars universe","uid":"14","attack":180,"name":"Han Solo"},{"description":"A person within the Star Wars universe","uid":"15","attack":173,"name":"Greedo"},{"description":"A person within the Star Wars universe","uid":"16","attack":175,"name":"Jabba Desilijic Tiure"},{"description":"A person within the Star Wars universe","uid":"18","attack":170,"name":"Wedge Antilles"},{"description":"A person within the Star Wars universe","uid":"19","attack":180,"name":"Jek Tono Porkins"},{"description":"A person within the Star Wars universe","uid":"20","attack":66,"name":"Yoda"},{"description":"A person within the Star Wars universe","uid":"21","attack":170,"name":"Palpatine"},{"description":"A person within the Star Wars universe","uid":"22","attack":183,"name":"Boba Fett"},{"description":"A person within the Star Wars universe","uid":"23","attack":200,"name":"IG-88"},{"description":"A person within the Star Wars universe","uid":"24","attack":190,"name":"Bossk"},{"description":"A person within the Star Wars universe","uid":"25","attack":177,"name":"Lando Calrissian"},{"description":"A person within the Star Wars universe","uid":"26","attack":175,"name":"Lobot"},{"description":"A person within the Star Wars universe","uid":"27","attack":180,"name":"Ackbar"},{"description":"A person within the Star Wars universe","uid":"28","attack":150,"name":"Mon Mothma"},{"description":"A person within the Star Wars universe","uid":"29","attack":0,"name":"Arvel Crynyd"},{"description":"A person within the Star Wars universe","uid":"30","attack":88,"name":"Wicket Systri Warrick"},{"description":"A person within the Star Wars universe","uid":"31","attack":160,"name":"Nien Nunb"},{"description":"A person within the Star Wars universe","uid":"32","attack":193,"name":"Qui-Gon Jinn"},{"description":"A person within the Star Wars universe","uid":"33","attack":191,"name":"Nute Gunray"},{"description":"A person within the Star Wars universe","uid":"34","attack":170,"name":"Finis Valorum"},{"description":"A person within the Star Wars universe","uid":"35","attack":185,"name":"Padmé Amidala"},{"description":"A person within the Star Wars universe","uid":"36","attack":196,"name":"Jar Jar Binks"},{"description":"A person within the Star Wars universe","uid":"37","attack":224,"name":"Roos Tarpals"},{"description":"A person within the Star Wars universe","uid":"38","attack":206,"name":"Rugor Nass"},{"description":"A person within the Star Wars universe","uid":"39","attack":183,"name":"Ric Olié"},{"description":"A person within the Star Wars universe","uid":"40","attack":137,"name":"Watto"},{"description":"A person within the Star Wars universe","uid":"41","attack":112,"name":"Sebulba"},{"description":"A person within the Star Wars universe","uid":"42","attack":183,"name":"Quarsh Panaka"},{"description":"A person within the Star Wars universe","uid":"43","attack":163,"name":"Shmi Skywalker"},{"description":"A person within the Star Wars universe","uid":"44","attack":175,"name":"Darth Maul"},{"description":"A person within the Star Wars universe","uid":"45","attack":180,"name":"Bib Fortuna"},{"description":"A person within the Star Wars universe","uid":"46","attack":178,"name":"Ayla Secura"},{"description":"A person within the Star Wars universe","uid":"47","attack":79,"name":"Ratts Tyerel"},{"description":"A person within the Star Wars universe","uid":"48","attack":94,"name":"Dud Bolt"},{"description":"A person within the Star Wars universe","uid":"49","attack":122,"name":"Gasgano"},{"description":"A person within the Star Wars universe","uid":"50","attack":163,"name":"Ben Quadinaros"},{"description":"A person within the Star Wars universe","uid":"51","attack":188,"name":"Mace Windu"},{"description":"A person within the Star Wars universe","uid":"52","attack":198,"name":"Ki-Adi-Mundi"},{"description":"A person within the Star Wars universe","uid":"53","attack":196,"name":"Kit Fisto"},{"description":"A person within the Star Wars universe","uid":"54","attack":171,"name":"Eeth Koth"},{"description":"A person within the Star Wars universe","uid":"55","attack":184,"name":"Adi Gallia"},{"description":"A person within the Star Wars universe","uid":"56","attack":188,"name":"Saesee Tiin"},{"description":"A person within the Star Wars universe","uid":"57","attack":264,"name":"Yarael Poof"},{"description":"A person within the Star Wars universe","uid":"58","attack":188,"name":"Plo Koon"},{"description":"A person within the Star Wars universe","uid":"59","attack":196,"name":"Mas Amedda"},{"description":"A person within the Star Wars universe","uid":"60","attack":185,"name":"Gregar Typho"},{"description":"A person within the Star Wars universe","uid":"61","attack":157,"name":"Cordé"},{"description":"A person within the Star Wars universe","uid":"62","attack":183,"name":"Cliegg Lars"},{"description":"A person within the Star Wars universe","uid":"63","attack":183,"name":"Poggle the Lesser"},{"description":"A person within the Star Wars universe","uid":"64","attack":170,"name":"Luminara Unduli"},{"description":"A person within the Star Wars universe","uid":"65","attack":166,"name":"Barriss Offee"},{"description":"A person within the Star Wars universe","uid":"66","attack":165,"name":"Dormé"},{"description":"A person within the Star Wars universe","uid":"67","attack":193,"name":"Dooku"},{"description":"A person within the Star Wars universe","uid":"68","attack":191,"name":"Bail Prestor Organa"},{"description":"A person within the Star Wars universe","uid":"69","attack":183,"name":"Jango Fett"},{"description":"A person within the Star Wars universe","uid":"70","attack":168,"name":"Zam Wesell"},{"description":"A person within the Star Wars universe","uid":"71","attack":198,"name":"Dexter Jettster"},{"description":"A person within the Star Wars universe","uid":"72","attack":229,"name":"Lama Su"},{"description":"A person within the Star Wars universe","uid":"73","attack":213,"name":"Taun We"},{"description":"A person within the Star Wars universe","uid":"74","attack":167,"name":"Jocasta Nu"},{"description":"A person within the Star Wars universe","uid":"75","attack":96,"name":"R4-P17"},{"description":"A person within the Star Wars universe","uid":"76","attack":193,"name":"Wat Tambor"},{"description":"A person within the Star Wars universe","uid":"77","attack":191,"name":"San Hill"},{"description":"A person within the Star Wars universe","uid":"78","attack":178,"name":"Shaak Ti"},{"description":"A person within the Star Wars universe","uid":"79","attack":216,"name":"Grievous"},{"description":"A person within the Star Wars universe","uid":"80","attack":234,"name":"Tarfful"},{"description":"A person within the Star Wars universe","uid":"81","attack":188,"name":"Raymus Antilles"},{"description":"A person within the Star Wars universe","uid":"82","attack":178,"name":"Sly Moore"},{"description":"A person within the Star Wars universe","uid":"83","attack":206,"name":"Tion Medon"}]
+[
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "1",
+        "attack": 172,
+        "name": "Luke Skywalker",
+        "img": "cardImages/people/luke_skywalker.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "2",
+        "attack": 167,
+        "name": "C-3PO",
+        "img": "cardImages/people/c_3po.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "3",
+        "attack": 96,
+        "name": "R2-D2",
+        "img": "cardImages/people/r2_d2.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "4",
+        "attack": 202,
+        "name": "Darth Vader",
+        "img": "cardImages/people/darth_vader.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "5",
+        "attack": 150,
+        "name": "Leia Organa",
+        "img": "cardImages/people/leia_organa.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "6",
+        "attack": 178,
+        "name": "Owen Lars",
+        "img": "cardImages/people/owen_lars.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "7",
+        "attack": 165,
+        "name": "Beru Whitesun lars",
+        "img": "cardImages/people/beru_whitesun_lars.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "8",
+        "attack": 97,
+        "name": "R5-D4",
+        "img": "cardImages/people/r5_d4.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "9",
+        "attack": 183,
+        "name": "Biggs Darklighter",
+        "img": "cardImages/people/biggs_darklighter.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "10",
+        "attack": 182,
+        "name": "Obi-Wan Kenobi",
+        "img": "cardImages/people/obi_wan_kenobi.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "11",
+        "attack": 188,
+        "name": "Anakin Skywalker",
+        "img": "cardImages/people/anakin_skywalker.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "12",
+        "attack": 180,
+        "name": "Wilhuff Tarkin",
+        "img": "cardImages/people/wilhuff_tarkin.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "13",
+        "attack": 228,
+        "name": "Chewbacca",
+        "img": "cardImages/people/chewbacca.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "14",
+        "attack": 180,
+        "name": "Han Solo",
+        "img": "cardImages/people/han_solo.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "15",
+        "attack": 173,
+        "name": "Greedo",
+        "img": "cardImages/people/greedo.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "16",
+        "attack": 175,
+        "name": "Jabba Desilijic Tiure",
+        "img": "cardImages/people/jabba_desilijic_tiure.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "18",
+        "attack": 170,
+        "name": "Wedge Antilles",
+        "img": "cardImages/people/wedge_antilles.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "19",
+        "attack": 180,
+        "name": "Jek Tono Porkins",
+        "img": "cardImages/people/jek_tono_porkins.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "20",
+        "attack": 66,
+        "name": "Yoda",
+        "img": "cardImages/people/yoda.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "21",
+        "attack": 170,
+        "name": "Palpatine",
+        "img": "cardImages/people/palpatine.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "22",
+        "attack": 183,
+        "name": "Boba Fett",
+        "img": "cardImages/people/boba_fett.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "23",
+        "attack": 200,
+        "name": "IG-88",
+        "img": "cardImages/people/ig_88.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "24",
+        "attack": 190,
+        "name": "Bossk",
+        "img": "cardImages/people/bossk.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "25",
+        "attack": 177,
+        "name": "Lando Calrissian",
+        "img": "cardImages/people/lando_calrissian.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "26",
+        "attack": 175,
+        "name": "Lobot",
+        "img": "cardImages/people/lobot.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "27",
+        "attack": 180,
+        "name": "Ackbar",
+        "img": "cardImages/people/ackbar.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "28",
+        "attack": 150,
+        "name": "Mon Mothma",
+        "img": "cardImages/people/mon_mothma.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "29",
+        "attack": 0,
+        "name": "Arvel Crynyd",
+        "img": "cardImages/people/arvel_crynyd.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "30",
+        "attack": 88,
+        "name": "Wicket Systri Warrick",
+        "img": "cardImages/people/wicket_systri_warrick.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "31",
+        "attack": 160,
+        "name": "Nien Nunb",
+        "img": "cardImages/people/nien_nunb.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "32",
+        "attack": 193,
+        "name": "Qui-Gon Jinn",
+        "img": "cardImages/people/qui_gon_jinn.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "33",
+        "attack": 191,
+        "name": "Nute Gunray",
+        "img": "cardImages/people/nute_gunray.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "34",
+        "attack": 170,
+        "name": "Finis Valorum",
+        "img": "cardImages/people/finis_valorum.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "35",
+        "attack": 185,
+        "name": "Padmé Amidala",
+        "img": "cardImages/people/padmé_amidala.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "36",
+        "attack": 196,
+        "name": "Jar Jar Binks",
+        "img": "cardImages/people/jar_jar_binks.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "37",
+        "attack": 224,
+        "name": "Roos Tarpals",
+        "img": "cardImages/people/roos_tarpals.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "38",
+        "attack": 206,
+        "name": "Rugor Nass",
+        "img": "cardImages/people/rugor_nass.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "39",
+        "attack": 183,
+        "name": "Ric Olié",
+        "img": "cardImages/people/ric_olié.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "40",
+        "attack": 137,
+        "name": "Watto",
+        "img": "cardImages/people/watto.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "41",
+        "attack": 112,
+        "name": "Sebulba",
+        "img": "cardImages/people/sebulba.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "42",
+        "attack": 183,
+        "name": "Quarsh Panaka",
+        "img": "cardImages/people/quarsh_panaka.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "43",
+        "attack": 163,
+        "name": "Shmi Skywalker",
+        "img": "cardImages/people/shmi_skywalker.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "44",
+        "attack": 175,
+        "name": "Darth Maul",
+        "img": "cardImages/people/darth_maul.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "45",
+        "attack": 180,
+        "name": "Bib Fortuna",
+        "img": "cardImages/people/bib_fortuna.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "46",
+        "attack": 178,
+        "name": "Ayla Secura",
+        "img": "cardImages/people/ayla_secura.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "47",
+        "attack": 79,
+        "name": "Ratts Tyerel",
+        "img": "cardImages/people/ratts_tyerel.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "48",
+        "attack": 94,
+        "name": "Dud Bolt",
+        "img": "cardImages/people/dud_bolt.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "49",
+        "attack": 122,
+        "name": "Gasgano",
+        "img": "cardImages/people/gasgano.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "50",
+        "attack": 163,
+        "name": "Ben Quadinaros",
+        "img": "cardImages/people/ben_quadinaros.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "51",
+        "attack": 188,
+        "name": "Mace Windu",
+        "img": "cardImages/people/mace_windu.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "52",
+        "attack": 198,
+        "name": "Ki-Adi-Mundi",
+        "img": "cardImages/people/ki_adi_mundi.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "53",
+        "attack": 196,
+        "name": "Kit Fisto",
+        "img": "cardImages/people/kit_fisto.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "54",
+        "attack": 171,
+        "name": "Eeth Koth",
+        "img": "cardImages/people/eeth_koth.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "55",
+        "attack": 184,
+        "name": "Adi Gallia",
+        "img": "cardImages/people/adi_gallia.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "56",
+        "attack": 188,
+        "name": "Saesee Tiin",
+        "img": "cardImages/people/saesee_tiin.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "57",
+        "attack": 264,
+        "name": "Yarael Poof",
+        "img": "cardImages/people/yarael_poof.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "58",
+        "attack": 188,
+        "name": "Plo Koon",
+        "img": "cardImages/people/plo_koon.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "59",
+        "attack": 196,
+        "name": "Mas Amedda",
+        "img": "cardImages/people/mas_amedda.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "60",
+        "attack": 185,
+        "name": "Gregar Typho",
+        "img": "cardImages/people/gregar_typho.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "61",
+        "attack": 157,
+        "name": "Cordé",
+        "img": "cardImages/people/cordé.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "62",
+        "attack": 183,
+        "name": "Cliegg Lars",
+        "img": "cardImages/people/cliegg_lars.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "63",
+        "attack": 183,
+        "name": "Poggle the Lesser",
+        "img": "cardImages/people/poggle_the_lesser.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "64",
+        "attack": 170,
+        "name": "Luminara Unduli",
+        "img": "cardImages/people/luminara_unduli.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "65",
+        "attack": 166,
+        "name": "Barriss Offee",
+        "img": "cardImages/people/barriss_offee.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "66",
+        "attack": 165,
+        "name": "Dormé",
+        "img": "cardImages/people/dormé.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "67",
+        "attack": 193,
+        "name": "Dooku",
+        "img": "cardImages/people/dooku.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "68",
+        "attack": 191,
+        "name": "Bail Prestor Organa",
+        "img": "cardImages/people/bail_prestor_organa.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "69",
+        "attack": 183,
+        "name": "Jango Fett",
+        "img": "cardImages/people/jango_fett.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "70",
+        "attack": 168,
+        "name": "Zam Wesell",
+        "img": "cardImages/people/zam_wesell.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "71",
+        "attack": 198,
+        "name": "Dexter Jettster",
+        "img": "cardImages/people/dexter_jettster.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "72",
+        "attack": 229,
+        "name": "Lama Su",
+        "img": "cardImages/people/lama_su.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "73",
+        "attack": 213,
+        "name": "Taun We",
+        "img": "cardImages/people/taun_we.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "74",
+        "attack": 167,
+        "name": "Jocasta Nu",
+        "img": "cardImages/people/jocasta_nu.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "75",
+        "attack": 96,
+        "name": "R4-P17",
+        "img": "cardImages/people/r4_p17.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "76",
+        "attack": 193,
+        "name": "Wat Tambor",
+        "img": "cardImages/people/wat_tambor.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "77",
+        "attack": 191,
+        "name": "San Hill",
+        "img": "cardImages/people/san_hill.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "78",
+        "attack": 178,
+        "name": "Shaak Ti",
+        "img": "cardImages/people/shaak_ti.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "79",
+        "attack": 216,
+        "name": "Grievous",
+        "img": "cardImages/people/grievous.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "80",
+        "attack": 234,
+        "name": "Tarfful",
+        "img": "cardImages/people/tarfful.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "81",
+        "attack": 188,
+        "name": "Raymus Antilles",
+        "img": "cardImages/people/raymus_antilles.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "82",
+        "attack": 178,
+        "name": "Sly Moore",
+        "img": "cardImages/people/sly_moore.webp"
+    },
+    {
+        "description": "A person within the Star Wars universe",
+        "uid": "83",
+        "attack": 206,
+        "name": "Tion Medon",
+        "img": "cardImages/people/tion_medon.webp"
+    }
+]

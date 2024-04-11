@@ -7,13 +7,13 @@ interface Card {
     name: string;
 }
 
-export function generateCardData(resourceType: string, cardId): Card {
-    return staticSWData[resourceType][cardId];
+export function generateCardData(resourceType: string, cardId: string): Card {
+    return staticSWData[resourceType].find((card) => card.uid === cardId);
 }
 
 function getRandomCard(resourceType: string): Card {
     const randomIndex = Math.floor(Math.random() * staticSWData[resourceType].length);
-    return staticSWData[resourceType][randomIndex];
+    return generateCardData(resourceType, randomIndex.toString());
 }
 
 export function buildDeckForPlayer(resourceType: string): Card[] {
