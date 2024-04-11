@@ -4,7 +4,7 @@ const cardIndex = defineModel('cardIndex')
 </script>
 
 <template>
-  <div class="card" v-if="card" :class="[`card-${cardIndex}`]"
+  <div class="card card--player" v-if="card" :class="[`card-${cardIndex}`]"
     :style="{ 'background-image': 'url(' + '/anakin.webp' + ')' }">
     <div class="shadow"></div>
     <div class="card-container">

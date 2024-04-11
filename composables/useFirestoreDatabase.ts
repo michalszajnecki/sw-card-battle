@@ -23,7 +23,8 @@ export default function () {
             lost: 0,
             lastMatches: [{ won: true, timestamp: new Date().getTime() }],
         };
-        return await setDoc(myDocRef, stats);
+        await setDoc(myDocRef, stats);
+        return stats;
     };
 
     const getUserData = async (uid: string) => {

@@ -28,7 +28,6 @@ async function handleRegistration() {
     moveToLobbyFlow(userFBData)
     formProcessing.value = false
   } catch (error) {
-    console.error(error);
     formProcessing.value = false
   }
 }
@@ -41,7 +40,6 @@ async function handlelogin() {
     moveToLobbyFlow(userFBData)
     formProcessing.value = false
   } catch (error) {
-    console.error(error);
     formProcessing.value = false
   }
 }
@@ -69,11 +67,14 @@ async function moveToLobbyFlow(userFBData) {
         <v-sheet class="pa-2 ma-2 sheet-welcome">
           <p class="panel-desc">Register to unlock access to best Star Wars Card Battler of all times!</p>
           <v-form @submit.prevent="handleRegistration">
-            <v-text-field v-model="email" :rules="[validateEmail]" label="Email"></v-text-field>
-            <v-text-field v-model="password" :rules="[validatePassword]" label="Password"></v-text-field>
-            <v-btn class="mt-2" type="submit" block>Submit</v-btn>
+            <v-text-field v-model="email" :rules="[validateEmail]" label="Email"
+              data-test="signup-email"></v-text-field>
+            <v-text-field v-model="password" :rules="[validatePassword]" label="Password"
+              data-test="signup-password"></v-text-field>
+            <v-btn class="mt-2" type="submit" data-test="signup-submit" block>Submit</v-btn>
           </v-form>
-          <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" block>Go to login</v-btn>
+          <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" data-test="set-form-signup"
+            block>Go to login</v-btn>
         </v-sheet>
       </v-col>
       <v-spacer></v-spacer>
@@ -83,11 +84,13 @@ async function moveToLobbyFlow(userFBData) {
         <v-sheet class="pa-2 ma-2 sheet-welcome">
           <p class="panel-desc">Login to conquer galaxy!</p>
           <v-form @submit.prevent="handlelogin">
-            <v-text-field v-model="email" :rules="[validateEmail]" label="Email"></v-text-field>
-            <v-text-field v-model="password" :rules="[validatePassword]" label="Password"></v-text-field>
-            <v-btn class="mt-2" type="submit" block>Submit</v-btn>
+            <v-text-field v-model="email" :rules="[validateEmail]" label="Email" data-test="login-email"></v-text-field>
+            <v-text-field v-model="password" :rules="[validatePassword]" label="Password"
+              data-test="login-password"></v-text-field>
+            <v-btn class="mt-2" type="submit" data-test="login-submit" block>Submit</v-btn>
           </v-form>
-          <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" block>Go to signup</v-btn>
+          <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" data-test="set-form-login"
+            block>Go to signup</v-btn>
 
         </v-sheet>
       </v-col>

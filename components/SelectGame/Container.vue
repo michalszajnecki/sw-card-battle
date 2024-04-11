@@ -36,9 +36,12 @@ async function createRoom(resourceType: string) {
       <template v-slot:default>
         <p class="battle-resource-header">Select resource type!</p>
         <v-card class="battle-resource">
-          <v-btn class="ms-auto" text="Planet" @click="startSinglePlayerGame('planets')"></v-btn>
-          <v-btn class="ms-auto" text="People" @click="startSinglePlayerGame('people')"></v-btn>
-          <v-btn class="ms-auto" text="Starship" @click="startSinglePlayerGame('starships')"></v-btn>
+          <v-btn class="ms-auto" text="Planet" @click="startSinglePlayerGame('planets')"
+            data-test="single-player-dialog-resource-planets"></v-btn>
+          <v-btn class="ms-auto" text="People" @click="startSinglePlayerGame('people')"
+            data-test="single-player-dialog-resource-people"></v-btn>
+          <v-btn class="ms-auto" text="Starship" @click="startSinglePlayerGame('starships')"
+            data-test="single-player-dialog-resource-starships"></v-btn>
         </v-card>
       </template>
     </v-card>

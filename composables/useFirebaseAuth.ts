@@ -10,9 +10,10 @@ export default function () {
 
     const registerUser = async (email: string, password: string): Promise<boolean> => {
         try {
+            await logoutUser();
             const userCreds = await createUserWithEmailAndPassword($auth, email, password);
             if (userCreds) {
-                user.value = userCreds.user;
+                user.value = { uid: userCreds.user.uid, stsTokenManager: userCreds.user?.stsTokenManager };
                 return user.value;
             }
         } catch (error: unknown) {
@@ -31,11 +32,12 @@ export default function () {
 
     const loginUser = async (email: string, password: string): Promise<boolean> => {
         try {
+            await logoutUser();
             const userCreds = await signInWithEmailAndPassword($auth, email, password);
-            if (userCreds) {
-                console.log(22);
-                console.log(userCreds.user);
 
+            console.log({ userCreds });
+
+            if (userCreds) {
                 user.value = { uid: userCreds.user.uid, stsTokenManager: userCreds.user?.stsTokenManager };
                 return user.value;
             }

@@ -12,7 +12,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "test": "vitest run",
-    "e2e": "npx playwright test"
+    "e2e": "npx playwright test",
+    "update-cards": "cd tools && node swapi-tech-scraper.js"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",

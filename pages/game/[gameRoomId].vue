@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useBattleData } from '../stores/battleData';
 import { useUserData } from '../stores/userData';
-import { generateCardData, getCardForComputerPlayer, buildDeckForPlayer } from '../../services/generateCardData';
-import { onDeactivated, onMounted, ref, computed, nextTick } from 'vue';
+import { generateCardData, buildDeckForPlayer } from '../../services/generateCardData';
+import { onMounted, ref, computed } from 'vue';
+
 useHead({
   title: 'Battle'
 })
@@ -12,49 +13,41 @@ definePageMeta({
     'auth'
   ]
 });
+
 const battleDataStore = useBattleData()
 const userDataStore = useUserData()
 const route = useRoute()
+const { user } = useFirebaseAuth()
+const { updateUserData, observeRoomStatus, getRoomData, updateGameRoomCard, clearGameRoomCards, removeRoom } = useFirestoreDatabase()
 
-const battleResource = ref(battleDataStore.resource)
-const enemyStatus = ref(battleDataStore.enemyStatus)
 const room = ref()
+const enemyCard = ref()
+const selectedCard = ref()
+const showBattleEndScreen = ref(false)
+const battleResult = ref(true)
+const usedCards: string[] = []
 const showEnemyDeck = ref(false)
 const canChooseCard = ref(false)
+const currentBattleStats = ref({ enemyWon: 0, userWon: 0 })
+
 const userDeckForSelectedResource = computed(() => {
   return buildDeckForPlayer(battleDataStore.resource)
 })
 
-const currentBattleStats = ref({ enemyWon: 0, userWon: 0 })
-
-const timeSpentInRoom = ref(0)
-const enemyCard = ref()
-const selectedCard = ref()
-let timeInterval;
-
-const showBattleEndScreen = ref(false)
-const battleResult = ref(true)
-const usedCards: string[] = []
-
-const { user, registerUser, loginUser } = useFirebaseAuth()
-const { addNewUserData, getUserData, updateUserData, observeRoomStatus, getRoomData, updateGameRoomCard, clearGameRoomCards, removeRoom } = useFirestoreDatabase()
-
-
+let roomObserver;
 
 async function selectCard(card) {
   usedCards.push(card.uid)
   selectedCard.value = card
-  const host = user.value.uid === room.value.ownerId
-  await updateGameRoomCard(card.uid, room.value.ownerId, host)
+  await updateGameRoomCard(card.uid, room.value.ownerId, isHost())
 }
 
 async function battle() {
-  const host = user.value.uid === room.value.ownerId
   showBattleEndScreen.value = true
   const hostCard = await generateCardData(room.value.resourceType, room.value.hostCard)
   const guestCard = await generateCardData(room.value.resourceType, room.value.guestCard)
   enemyCard.value = guestCard
-  const result = host ? guestCard.attack < hostCard.attack : guestCard.attack > hostCard.attack;
+  const result = isHost() ? guestCard.attack < hostCard.attack : guestCard.attack > hostCard.attack;
   battleResult.value = result;
 
   if (result) {
@@ -69,21 +62,21 @@ async function battle() {
 }
 
 async function leaveBattleRoom() {
-  const host = user.value.uid === route?.params?.gameRoomId
-  if (host) {
+  if (isHost()) {
     await removeRoom(route?.params?.gameRoomId)
   }
   navigateTo('/game/lobby')
 }
 
-console.log(route?.params?.gameRoomId)
-
+function isHost() {
+  return user.value.uid === route?.params?.gameRoomId
+}
 
 function cardDisabled(card) {
   return usedCards.includes(card.uid)
 }
 
-async function captureFBEvents(FBSnapshot) {
+async function captureFBEvents() {
   room.value = await getRoomData(route?.params?.gameRoomId)
 
   if (!room.value.guestId || !room.value.ownerId) {
@@ -109,14 +102,10 @@ async function captureFBEvents(FBSnapshot) {
 
 }
 
-let roomObserver;
-
 onMounted(() => {
   showEnemyDeck.value = false;
   roomObserver = observeRoomStatus(route?.params?.gameRoomId, captureFBEvents)
 })
-
-
 </script>
 
 <template>

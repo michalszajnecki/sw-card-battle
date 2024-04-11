@@ -17,7 +17,6 @@ definePageMeta({
 const battleDataStore = useBattleData()
 const userDataStore = useUserData()
 const showEnemyDeck = ref(false)
-const currentBattleStats = ref({ enemyWon: 0, userWon: 0 })
 const enemyCard = ref()
 const selectedCard = ref()
 const showBattleEndScreen = ref(false)
@@ -40,32 +39,17 @@ async function battle(card) {
   usedCards.push(card.uid)
   selectedCard.value = card
   showBattleEndScreen.value = true
-
-  const result = enemyCard.value.attack < card.attack;
-  battleResult.value = result;
-
-  if (result) {
-    currentBattleStats.value.userWon++
-  } else {
-    currentBattleStats.value.enemyWon++
-  }
-
+  battleResult.value = enemyCard.value.attack < card.attack;
   const currentLocalStats = await userDataStore.captureBattleResult(battleResult.value)
-
-
   await updateUserData(user.value.uid, currentLocalStats)
 }
 
 async function playAgain() {
-  if (battleDataStore.enemyId !== 'computer') {
-    leaveBattleRoom()
-  } else {
-    showEnemyDeck.value = false;
-    showBattleEndScreen.value = false
-    enemyCard.value = getCardForComputerPlayer(battleDataStore.resource)
-    await nextTick()
-    showEnemyDeck.value = true;
-  }
+  showEnemyDeck.value = false;
+  showBattleEndScreen.value = false
+  enemyCard.value = getCardForComputerPlayer(battleDataStore.resource)
+  await nextTick()
+  showEnemyDeck.value = true;
 }
 
 function leaveBattleRoom() {
@@ -99,8 +83,9 @@ function cardDisabled(card) {
         </div>
 
         <div class="battle-results-options">
-          <v-btn class="ms-auto" text="Leave" @click="leaveBattleRoom()"></v-btn>
-          <v-btn class="ms-auto" text="Play again" @click="playAgain()" :disabled="usedCards.length >= 5"></v-btn>
+          <v-btn class="ms-auto" text="Leave" @click="leaveBattleRoom()" data-test="leave-room"></v-btn>
+          <v-btn class="ms-auto" text="Play again" @click="playAgain()" :disabled="usedCards.length >= 5"
+            data-test="play-again"></v-btn>
         </div>
 
       </v-card>

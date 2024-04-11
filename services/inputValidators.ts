@@ -1,5 +1,5 @@
 export function validatePassword(password: string) {
-    return password.length >= 8 ? true : 'Password is too short';
+    return password?.length >= 8 ? true : 'Password is too short';
 }
 
 export function validateEmail(email: string) {
