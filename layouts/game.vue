@@ -1,31 +1,28 @@
 <script setup lang="ts">
-import { watch, onMounted } from 'vue'
-
-
-
-
+import { onMounted } from 'vue';
+import { useUserData } from '../stores/userData'
+const { user, logoutUser } = useFirebaseAuth()
+const { getUserData } = useFirestoreDatabase()
+const userDataStore = useUserData()
 
 if (process.client) {
-  // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
   let vh = window.innerHeight * 0.01;
-  // Then we set the value in the --vh custom property to the root of the document
   document.documentElement.style.setProperty('--vh', `${vh}px`);
-  // We listen to the resize event
   window.addEventListener('resize', () => {
-    // We execute the same script as before
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   });
 }
 
-import { useUserData } from '../stores/userData';
+async function logout() {
+  await logoutUser()
+  navigateTo('/login')
+}
 
-const userDataStore = useUserData()
-
-onMounted(() => {
-
+onMounted(async () => {
+  const userFBData = await getUserData(user.value.uid)
+  await userDataStore.updateData(userFBData)
 })
-
 </script>
 
 <template>
@@ -35,25 +32,15 @@ onMounted(() => {
         <v-app-bar-title class="app-title">STAR WARS BATTLE CARDS</v-app-bar-title>
 
         <template v-slot:append>
-          W/L games [{{ userDataStore.stats.won }} / {{ userDataStore.stats.lost }}]
-          <v-btn icon="mdi-heart">
-          </v-btn>
-
-          <v-btn icon="mdi-cog"></v-btn>
-
-          <v-btn icon="mdi-dots-vertical"></v-btn>
+          <StatsContainer />
+          <v-btn @click="logout()">LOGOUT</v-btn>
         </template>
       </v-app-bar>
 
-
       <v-main class="d-flex align-center justify-center">
         <NuxtPage />
-
       </v-main>
     </v-layout>
-
-
-
   </div>
 </template>
 

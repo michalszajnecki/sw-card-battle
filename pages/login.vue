@@ -35,7 +35,13 @@ async function handleRegistration() {
 
 async function handlelogin() {
   await loginUser(email.value, password.value)
+  console.log('222');
+
+  console.log({ user: user.value.uid });
+
   const userFBData = await getUserData(user.value.uid)
+
+  console.log({ userFBData })
   moveToLobbyFlow(userFBData)
 }
 
@@ -144,12 +150,12 @@ async function moveToLobbyFlow(userFBData) {
 
 
 .form-column-login {
-  top: -100rem;
+  top: -200rem;
   z-index: 1;
 }
 
 .form-column-registration {
-  top: 100rem;
+  top: 200rem;
   z-index: 1;
 }
 
@@ -158,9 +164,10 @@ async function moveToLobbyFlow(userFBData) {
   min-width: 30rem;
   height: 100vh;
   background-color: #282645;
-  position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
+  margin-left: 0;
   // animation: showLoginPanel 2s forwards;
 }
 </style>

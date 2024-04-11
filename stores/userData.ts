@@ -1,8 +1,21 @@
 /* eslint-disable prettier/prettier */
 import { defineStore } from 'pinia';
-import axios from 'axios';
 
+interface lastMatches {
+  won: boolean;
+  timestamp: number;
+}
 
+interface userStats {
+  won: number;
+  lost: number;
+  lastMatches: lastMatches[]
+}
+
+interface userWonLostData {
+  won: number;
+  lost: number;
+}
 export const useUserData = defineStore('userData', {
   state: () => ({
     stats: {
@@ -12,7 +25,7 @@ export const useUserData = defineStore('userData', {
     }
   }),
   actions: {
-    async captureBattleResult(won: boolean) {
+    async captureBattleResult(won: boolean): Promise<userStats> {
       this.stats[won ? 'won' : 'lost']++
       this.stats.lastMatches.push(
         {
@@ -26,17 +39,13 @@ export const useUserData = defineStore('userData', {
         lastMatches: this.stats.lastMatches,
       }
     },
-    async updateData(userData) {
-      console.log({ userData });
-
+    async updateData(userData): Promise<boolean> {
       this.stats.won = userData.won
       this.stats.lost = userData.lost
       this.stats.lastMatches = userData.lastMatches
       return true
     },
-    async getWonLostData() {
-      console.log(this.$state.stats);
-
+    async getWonLostData(): Promise<userWonLostData> {
       return { won: this.$state.stats.won, lost: this.$state.stats.lost }
     },
 
