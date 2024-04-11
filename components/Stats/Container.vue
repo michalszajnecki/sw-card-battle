@@ -35,7 +35,7 @@ async function openStats() {
   <v-dialog v-model="statsDialog" width="auto">
     <v-card max-width="400">
       <template v-slot:default>
-        <h1 class="win-ratio">User win ratio</h1>
+        <h1 class="win-ratio">win-lose ratio</h1>
         <div class="chart">
           <h1 class="calculated-ratio">{{ calculatedRatio }}%</h1>
           <div class="pie" :style="statsPieStyle"></div>
