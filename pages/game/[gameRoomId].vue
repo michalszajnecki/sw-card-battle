@@ -4,7 +4,7 @@ import { useUserData } from '../stores/userData';
 import { generateCardData, getCardForComputerPlayer, buildDeckForPlayer } from '../../services/generateCardData';
 import { onDeactivated, onMounted, ref, computed, nextTick } from 'vue';
 useHead({
-  title: 'Login'
+  title: 'Battle'
 })
 definePageMeta({
   layout: 'game',
@@ -14,6 +14,7 @@ definePageMeta({
 });
 const battleDataStore = useBattleData()
 const userDataStore = useUserData()
+const route = useRoute()
 
 const battleResource = ref(battleDataStore.resource)
 const enemyStatus = ref(battleDataStore.enemyStatus)
@@ -75,7 +76,6 @@ async function leaveBattleRoom() {
   navigateTo('/game/lobby')
 }
 
-const route = useRoute()
 console.log(route?.params?.gameRoomId)
 
 
@@ -83,16 +83,8 @@ function cardDisabled(card) {
   return usedCards.includes(card.uid)
 }
 
-
-
-const battleNumber = 0
-
 async function captureFBEvents(FBSnapshot) {
-  console.log('captured');
-  console.log({ FBSnapshot });
   room.value = await getRoomData(route?.params?.gameRoomId)
-  console.log(room.value.guestId.length < 0 && room.value.ownerId.length < 0);
-  console.log(room.value);
 
   if (!room.value.guestId || !room.value.ownerId) {
     showEnemyDeck.value = false;
@@ -148,8 +140,21 @@ onMounted(() => {
           </div>
         </div>
 
+        <div class="battle-result-score">
+          <div class="battle-result-score-block">
+            <p class="battle-result-score-text">LOST</p>
+            <p class="battle-result-score-result">{{ currentBattleStats.enemyWon }}</p>
+          </div>
+          <div class="battle-result-score-block">
+            <p class="battle-result-score-text">WON</p>
+            <p class="battle-result-score-result">{{ currentBattleStats.userWon }}</p>
+          </div>
+        </div>
+
         <div class="battle-results-options">
-          <v-btn class="ms-auto" text="Leave" @click="leaveBattleRoom()"></v-btn>
+          <v-btn class="ms-auto" text="Play again" @click="showBattleEndScreen = false"
+            v-if="usedCards.length !== 5"></v-btn>
+          <v-btn class="ms-auto" text="Leave" @click="leaveBattleRoom()" v-if="usedCards.length === 5"></v-btn>
         </div>
 
       </v-card>
@@ -297,5 +302,30 @@ onMounted(() => {
     width: 12rem;
     margin: 1rem !important;
   }
+}
+
+
+.battle-result-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.battle-result-score-block {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #282645;
+  border: .2rem solid #FC0858;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.battle-result-score-text {
+  font-size: 1rem;
+}
+
+.battle-result-score-result {
+  text-align: center;
 }
 </style>

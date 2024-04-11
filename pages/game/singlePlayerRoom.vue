@@ -5,7 +5,7 @@ import { getCardForComputerPlayer, buildDeckForPlayer } from '../../services/gen
 import { onMounted, ref, computed, nextTick } from 'vue';
 
 useHead({
-  title: 'Login'
+  title: 'Battle'
 })
 definePageMeta({
   layout: 'game',

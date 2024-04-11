@@ -77,7 +77,7 @@ async function openStats() {
     height: 20rem;
     width: 20rem;
     border-radius: 50%;
-    box-shadow: 0rem 0rem 8rem -2rem #ccff00, inset 0rem 0rem 8rem -2rem #283300;
+    box-shadow: 0rem 0rem 8rem -2rem #ff0095, inset 0rem 0rem 8rem -2rem #283300;
   }
 }
 

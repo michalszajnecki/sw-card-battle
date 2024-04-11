@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: 'Login'
+  title: 'Lobby'
 })
 
 definePageMeta({

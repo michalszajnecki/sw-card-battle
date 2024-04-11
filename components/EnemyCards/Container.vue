@@ -5,13 +5,10 @@ const playAnimation = ref(false)
 onMounted(() => {
   playAnimation.value = true
 })
-
 </script>
 
 <template>
-  <div class="card" :class="[`card-${cardIndex}`]">
-
-  </div>
+  <div class="card" :class="[`card-${cardIndex}`]"></div>
 </template>
 
 <style lang="scss" scoped>

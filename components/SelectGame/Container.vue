@@ -30,10 +30,11 @@ async function createRoom(resourceType: string) {
 
 <template>
   <v-dialog v-model="singlePlayerDialog" width="auto">
-    <v-card max-width="400" prepend-icon="mdi-update"
+    <v-card max-width="400" prepend-icon="mdi-sword-cross"
       text="Test your luck with battle agains computer. Select resource type, and join private battle room. You will recive 5 random cards, giving you ability to play through 5 rounds. You can leave game after each round, but only best players stay till the end risking lovering their win-lose ratio!"
       title="Play against computer">
       <template v-slot:default>
+        <p class="battle-resource-header">Select resource type!</p>
         <v-card class="battle-resource">
           <v-btn class="ms-auto" text="Planet" @click="startSinglePlayerGame('planets')"></v-btn>
           <v-btn class="ms-auto" text="People" @click="startSinglePlayerGame('people')"></v-btn>
@@ -44,9 +45,11 @@ async function createRoom(resourceType: string) {
   </v-dialog>
 
   <v-dialog v-model="multiplayerDialog" width="auto">
-    <v-card max-width="400" prepend-icon="mdi-update"
-      text="Your application will relaunch automatically after the update is complete." title="Update in progress">
+    <v-card max-width="400" prepend-icon="mdi-sword-cross"
+      text="Fight agains other players and track your score after each turn. You will recive 5 random cards, giving you ability to play through 5 rounds. Each round require to spend one card. Think carefully, because not all cards are created equal!"
+      title="Host multiplayer game">
       <template v-slot:default>
+        <p class="battle-resource-header">Select resource type!</p>
         <v-card class="battle-resource">
           <v-btn variant="elevated" class="ms-auto" text="Planet" @click="createRoom('planet')"></v-btn>
           <v-btn variant="elevated" class="ms-auto" text="People" @click="createRoom('people')"></v-btn>
@@ -98,5 +101,13 @@ async function createRoom(resourceType: string) {
       font-size: 2rem;
     }
   }
+}
+
+.battle-resource-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  margin: 3rem auto 0;
 }
 </style>

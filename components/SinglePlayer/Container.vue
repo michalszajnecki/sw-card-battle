@@ -1,45 +1,27 @@
 <script setup lang="ts">
 import { useBattleData } from '../stores/battleData';
 import { useUserData } from '../stores/userData';
-import { generateCardData, getCardForComputerPlayer, buildDeckForPlayer } from '../../services/generateCardData';
-import { onDeactivated, onMounted, ref, computed, nextTick } from 'vue';
-useHead({
-  title: 'Login'
-})
-definePageMeta({
-  layout: 'game',
-  middleware: [
-    'auth'
-  ]
-});
+import { getCardForComputerPlayer, buildDeckForPlayer } from '../../services/generateCardData';
+import { onMounted, ref, computed, nextTick } from 'vue';
+
 const battleDataStore = useBattleData()
 const userDataStore = useUserData()
 
-const battleResource = ref(battleDataStore.resource)
-const enemyStatus = ref(battleDataStore.enemyStatus)
 const showEnemyDeck = ref(false)
 const userDeckForSelectedResource = computed(() => {
   return buildDeckForPlayer(battleDataStore.resource)
 })
 
 const currentBattleStats = ref({ enemyWon: 0, userWon: 0 })
-
-const timeSpentInRoom = ref(0)
 const enemyCard = ref()
 const selectedCard = ref()
-let timeInterval;
-function updateTimer() {
-  timeSpentInRoom.value++
-  // clearInterval(timeInterval)
-}
 const showBattleEndScreen = ref(false)
 const battleResult = ref(true)
 
-const { user, registerUser, loginUser } = useFirebaseAuth()
-const { addNewUserData, getUserData, updateUserData } = useFirestoreDatabase()
+const { user } = useFirebaseAuth()
+const { updateUserData } = useFirestoreDatabase()
 
 async function battle(card) {
-
   selectedCard.value = card
   showBattleEndScreen.value = true
 
@@ -52,16 +34,12 @@ async function battle(card) {
     currentBattleStats.value.enemyWon++
   }
 
-
   const currentLocalStats = await userDataStore.captureBattleResult(battleResult.value)
-
-  console.log({ currentLocalStats });
 
   await updateUserData(user.value.uid, currentLocalStats)
 }
 
 function leaveBattleRoom() {
-  clearInterval(timeInterval)
   navigateTo('/game/lobby')
 }
 
@@ -77,43 +55,16 @@ async function playAgain() {
   }
 }
 
-
-
-function awaitingEnemy() {
-  updateTimer();
-  if (enemyStatus.value) {
-
-  }
-}
-
 onMounted(() => {
-  // flow
-
-  // 1. check if enemy is avaiable.If not, start waiting loop
-  // 2.
   showEnemyDeck.value = true;
   enemyCard.value = getCardForComputerPlayer(battleDataStore.resource)
-
-  timeInterval = setInterval(async function () {
-    updateTimer()
-  }, 1000)
-})
-
-onDeactivated(() => {
-  clearInterval(timeInterval)
 })
 </script>
 
 <template>
   <div class="battle-deck">
-
-    {{ currentBattleStats.userWon }}
-    {{ currentBattleStats.enemyWon }}
-
-
     <v-dialog v-model="showBattleEndScreen" width="auto">
       <v-card max-width="400" prepend-icon="mdi-sword-cross" title="Battle!">
-
 
         <div class="versus-line">
           <div>Enemy

@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useBattleData } from '../stores/battleData';
-import { useUserData } from '../stores/userData';
 
 const rooms = ref()
 const battleDataStore = useBattleData()
-const userDataStore = useUserData()
-const { createNewGameroom, getRooms, updateGameRoom } = useFirestoreDatabase()
-const { user, registerUser, loginUser } = useFirebaseAuth()
+const { getRooms, updateGameRoom } = useFirestoreDatabase()
+const { user } = useFirebaseAuth()
 
 async function joinRoom(room) {
   const newRoutePath = await battleDataStore.assignNewGameRoom({
@@ -16,7 +14,6 @@ async function joinRoom(room) {
   })
 
   updateGameRoom(user.value.uid, room.id)
-
   navigateTo(newRoutePath)
 }
 
