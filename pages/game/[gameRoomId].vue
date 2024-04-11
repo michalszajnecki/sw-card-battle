@@ -113,32 +113,9 @@ onMounted(() => {
     <v-dialog v-model="showBattleEndScreen" width="auto">
       <v-card max-width="350" width="350" class="battle-result">
 
-        <h1 class="battle-result-text">{{ battleResult ? 'YOU WON!' : 'YOU LOST' }}</h1>
-
-        <div class="battle-result-cards">
-          <div class="battle-result-cards-column">
-            <p class="battle-result-cards-column-text">Enemy</p>
-            <CardContainer :card="enemyCard" :card-index="100" />
-          </div>
-          <div class="battle-result-cards-column battle-result-cards-column-vs">
-            <span class="battle-result-cards-column-vs">VS</span>
-          </div>
-          <div class="battle-result-cards-column">
-            <p class="battle-result-cards-column-text">You</p>
-            <CardContainer :card="selectedCard" :card-index="101" />
-          </div>
-        </div>
-
-        <div class="battle-result-score">
-          <div class="battle-result-score-block">
-            <p class="battle-result-score-text">LOST</p>
-            <p class="battle-result-score-result">{{ currentBattleStats.enemyWon }}</p>
-          </div>
-          <div class="battle-result-score-block">
-            <p class="battle-result-score-text">WON</p>
-            <p class="battle-result-score-result">{{ currentBattleStats.userWon }}</p>
-          </div>
-        </div>
+        <GameRoomBattleResultText :result="battleResult" />
+        <GameRoomBattleResultCards :selected-card="selectedCard" :enemy-card="enemyCard" />
+        <GameRoomBattleResultScore :battle-stats="currentBattleStats" />
 
         <div class="battle-results-options">
           <v-btn class="ms-auto" text="Play again" @click="showBattleEndScreen = false"
@@ -149,16 +126,8 @@ onMounted(() => {
       </v-card>
     </v-dialog>
 
-    <div class="enemy-deck" v-if="showEnemyDeck">
-      <EnemyCardsContainer v-for="(card, index) in userDeckForSelectedResource" :key="index" :card-index="index" />
-    </div>
-
-    <div class="battle-spacer" :class="{
-      'battle-spacer--no-enemy': showEnemyDeck === false
-    }">
-      <h1 class="phase-type" v-show="!showBattleEndScreen">{{ showEnemyDeck && canChooseCard ? 'ATTACK PHASE' :
-      'AWAITING ENEMY' }}</h1>
-    </div>
+    <GameRoomEnemyDeck v-if="showEnemyDeck" />
+    <GameRoomComplexBattleSpacer :no-enemy="showEnemyDeck" :user-control="canChooseCard" />
 
     <div class="my-deck" :class="{
       'my-deck--no-enemy': canChooseCard === false
@@ -170,151 +139,11 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-.battle-deck {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 55rem;
-  height: 63rem;
-  align-items: center;
-  border-radius: 1rem;
-  margin: 3rem;
-  background-color: #282645;
-  box-shadow: inset 0rem 0rem 21rem -2rem black;
-
-  @media screen and (max-width: 580px) {
-    border-radius: 0;
-    margin: 0;
-    height: 80vh;
-  }
-
-  .enemy-deck {
-    @media screen and (max-width: 580px) {
-
-      margin-top: -6rem;
-    }
-  }
-}
-
-.battle-spacer {
-  width: 100%;
-  margin: 10rem auto;
-  position: relative;
-  opacity: .3;
-
-  &.battle-spacer--no-enemy {
-    margin-top: calc(10rem + 18.5rem);
-  }
-}
-
-.phase-type {
-  color: #fff;
-  opacity: 0.6;
-  font-size: 4.1rem;
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  top: 0;
-}
-
-.my-deck,
-.enemy-deck {
-  display: flex;
-  max-width: 100%;
-}
+@use "~/assets/css/gameRoom.scss";
 
 .my-deck {
   &.my-deck--no-enemy {
     pointer-events: none;
   }
-}
-
-.card.is-disabled {
-  opacity: .3;
-  pointer-events: none;
-}
-
-.v-card.battle-result {
-  padding: 2rem;
-  border-radius: 1rem;
-
-  .battle-result-text {
-    text-align: center;
-    border-bottom: 0.2rem solid #fff;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-  }
-}
-
-.battle-result-cards {
-  pointer-events: none;
-  display: flex;
-  justify-content: space-around;
-
-  .battle-result-cards-column.battle-result-cards-column-vs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .battle-result-cards-column-vs {
-      font-size: 3rem;
-      letter-spacing: -0.5rem;
-    }
-  }
-
-  .battle-result-cards-column {
-    .battle-result-cards-column-text {
-      font-size: 1.4rem;
-      text-transform: uppercase;
-      text-align: center;
-      width: 100%;
-      text-shadow: 0rem 0rem 0.4rem #FC0858;
-      font-weight: bold;
-      letter-spacing: 0.2rem;
-    }
-
-    .card {
-      margin: 1rem;
-    }
-  }
-
-}
-
-.battle-results-options {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin: auto;
-  flex-wrap: wrap;
-
-  .ms-auto {
-    width: 12rem;
-    margin: 1rem !important;
-  }
-}
-
-
-.battle-result-score {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.battle-result-score-block {
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: #282645;
-  border: .2rem solid #FC0858;
-  padding: 0.5rem 2rem;
-  border-radius: 1rem;
-  margin: 1rem;
-}
-
-.battle-result-score-text {
-  font-size: 1rem;
-}
-
-.battle-result-score-result {
-  text-align: center;
 }
 </style>

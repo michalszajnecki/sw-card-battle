@@ -8,7 +8,7 @@ export default function () {
         watch: true,
     });
 
-    const registerUser = async (email: string, password: string): Promise<boolean> => {
+    const registerUser = async (email: string, password: string): Promise<unknown> => {
         try {
             await logoutUser();
             const userCreds = await createUserWithEmailAndPassword($auth, email, password);
@@ -30,7 +30,7 @@ export default function () {
         return true;
     };
 
-    const loginUser = async (email: string, password: string): Promise<boolean> => {
+    const loginUser = async (email: string, password: string): Promise<unknown> => {
         try {
             await logoutUser();
             const userCreds = await signInWithEmailAndPassword($auth, email, password);

@@ -2,18 +2,6 @@ import { collection, getDocs, getDoc, deleteDoc, doc, setDoc, onSnapshot } from 
 export default function () {
     const { $firestore } = useNuxtApp();
 
-    const getCollectionData = async (col: string) => {
-        const colRef = collection($firestore, 'userStats');
-        const snapshot = await getDocs(colRef);
-        const docs = Array.from(snapshot.docs).map((doc) => {
-            return {
-                ...doc.data(),
-                id: doc.id,
-            };
-        });
-        return docs;
-    };
-
     const addNewUserData = async (uid: string) => {
         const colRef = collection($firestore, 'userStats');
         const myDocRef = doc(colRef, uid);
@@ -134,7 +122,6 @@ export default function () {
     };
 
     return {
-        getCollectionData,
         addNewUserData,
         getUserData,
         createNewGameroom,
