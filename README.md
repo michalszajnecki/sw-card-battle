@@ -56,3 +56,12 @@ name: string;
 - `game/singlePlayerRoom` - Special version of the game room where the current user will play against a computer enemy.
 - `game/[gameRoomId]` - Game room, where `gameRoomId` is a uid of the game host.
 
+## Roadmap
+
+Plans for MPV+
+
+1. Find and address any remaining bugs
+2. Build repository of images for planets and starships
+3. Expand e2e tests
+4. Introduce PWA
+5. Expand user stats
