@@ -35,8 +35,6 @@ export default function () {
             await logoutUser();
             const userCreds = await signInWithEmailAndPassword($auth, email, password);
 
-            console.log({ userCreds });
-
             if (userCreds) {
                 user.value = { uid: userCreds.user.uid, stsTokenManager: userCreds.user?.stsTokenManager };
                 return user.value;
