@@ -30,6 +30,8 @@ const attack = defineModel('attack')
     margin: 0 .5rem;
     line-height: 1;
     width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 </style>

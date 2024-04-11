@@ -16,31 +16,31 @@
         height: 80vh;
     }
 
-    .my-deck {
-        display: flex;
-        max-width: 100%;
-    }
+}
+.my-deck {
+    display: flex;
+    max-width: 100%;
+}
 
-    .card.is-disabled {
-        opacity: .3;
-        pointer-events: none;
-    }
+.card.is-disabled {
+    opacity: .3;
+    pointer-events: none;
+}
 
-    .v-card.battle-result {
-        padding: 2rem;
-        border-radius: 1rem;
-    }
+.v-card.battle-result {
+    padding: 2rem;
+    border-radius: 1rem;
+}
 
-    .battle-results-options {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        margin: auto;
-        flex-wrap: wrap;
+.battle-results-options {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
 
-        .ms-auto {
-        width: 12rem;
-        margin: 1rem !important;
-        }
+    .ms-auto {
+    width: 12rem;
+    margin: 1rem !important;
     }
 }

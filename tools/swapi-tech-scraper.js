@@ -14,6 +14,10 @@ function saveAsJSON(name, data) {
     });
 }
 
+function generateImg(name, prefixFolder) {
+    return `cardImages/${prefixFolder}/${name.replace(/[\s-]+/g, '_').toLowerCase()}.webp`;
+}
+
 async function getPeople() {
     const { data } = await axios.get('https://www.swapi.tech/api/people?page=1&limit=100');
     const people = await Promise.all(
@@ -24,6 +28,7 @@ async function getPeople() {
                 uid: data.result.uid,
                 attack: data.result.properties.height === 'unknown' ? 0 : Number(data.result.properties.height),
                 name: data.result.properties.name,
+                img: generateImg(data.result.properties.name, 'people'),
             };
         }),
     );
@@ -43,6 +48,7 @@ async function getStarships() {
                 uid: data.result.uid,
                 attack: data.result.properties.length === 'unknown' ? 0 : Number(data.result.properties.length),
                 name: data.result.properties.name,
+                img: generateImg(data.result.properties.name, 'starships'),
             };
         }),
     );
@@ -66,6 +72,7 @@ async function getPlanets() {
                 uid: data.result.uid,
                 attack: data.result.properties.population === 'unknown' ? 0 : Number(data.result.properties.population),
                 name: data.result.properties.name,
+                img: generateImg(data.result.properties.name, 'planets'),
             };
         }),
     );

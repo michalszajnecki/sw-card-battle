@@ -10,7 +10,7 @@ To start developing the application locally, you should create a Firebase Projec
 
 ## Tests
 
-The project contains unit tests and e2e tests, made with the default Nuxt testing library - `@nuxt/test-utils`. For unit tests, I chose `vitest`, and for e2e tests, `playwright`.
+The project contains unit tests and e2e tests, made with vitest and playwright.
 
 - Unit tests can be run with `npm run test`
 - e2e tests can be run with `npm run e2e`
@@ -36,8 +36,6 @@ You can access your current stats using the top bar menu button "OPEN USER STATS
 Right now, cards are kept inside JSON files in the tools folder. Later on, we can move the data to a separate collection in the database to give Game Administrators the ability to add, remove, and modify cards.
 
 Developers can use `swapi-tech-scraper.js` to scrape new data from SWAPI. The scraper will try to download data from the API and proceed to generate a common card object.
-
-
 
 ```
 description: string;
