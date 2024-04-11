@@ -1,217 +1,217 @@
 [
     {
         "description": "A Starship",
-        "uid": "2",
+        "uid": "1",
         "attack": 150,
         "name": "CR90 corvette"
     },
     {
         "description": "A Starship",
-        "uid": "3",
+        "uid": "2",
         "attack": 1600,
         "name": "Star Destroyer"
     },
     {
         "description": "A Starship",
-        "uid": "5",
+        "uid": "3",
         "attack": 38,
         "name": "Sentinel-class landing craft"
     },
     {
         "description": "A Starship",
-        "uid": "9",
+        "uid": "4",
         "attack": 120000,
         "name": "Death Star"
     },
     {
         "description": "A Starship",
-        "uid": "11",
-        "attack": 14,
-        "name": "Y-wing"
-    },
-    {
-        "description": "A Starship",
-        "uid": "10",
+        "uid": "5",
         "attack": 34.37,
         "name": "Millennium Falcon"
     },
     {
         "description": "A Starship",
-        "uid": "13",
-        "attack": 9.2,
-        "name": "TIE Advanced x1"
+        "uid": "6",
+        "attack": 14,
+        "name": "Y-wing"
     },
     {
         "description": "A Starship",
-        "uid": "15",
-        "attack": 19000,
-        "name": "Executor"
-    },
-    {
-        "description": "A Starship",
-        "uid": "12",
+        "uid": "7",
         "attack": 12.5,
         "name": "X-wing"
     },
     {
         "description": "A Starship",
-        "uid": "17",
+        "uid": "8",
+        "attack": 9.2,
+        "name": "TIE Advanced x1"
+    },
+    {
+        "description": "A Starship",
+        "uid": "9",
+        "attack": 19000,
+        "name": "Executor"
+    },
+    {
+        "description": "A Starship",
+        "uid": "10",
         "attack": 90,
         "name": "Rebel transport"
     },
     {
         "description": "A Starship",
-        "uid": "21",
+        "uid": "11",
         "attack": 21.5,
         "name": "Slave 1"
     },
     {
         "description": "A Starship",
-        "uid": "22",
+        "uid": "12",
         "attack": 20,
         "name": "Imperial shuttle"
     },
     {
         "description": "A Starship",
-        "uid": "23",
+        "uid": "13",
         "attack": 300,
         "name": "EF76 Nebulon-B escort frigate"
     },
     {
         "description": "A Starship",
-        "uid": "28",
-        "attack": 9.6,
-        "name": "A-wing"
-    },
-    {
-        "description": "A Starship",
-        "uid": "27",
+        "uid": "14",
         "attack": 1200,
         "name": "Calamari Cruiser"
     },
     {
         "description": "A Starship",
-        "uid": "29",
+        "uid": "15",
+        "attack": 9.6,
+        "name": "A-wing"
+    },
+    {
+        "description": "A Starship",
+        "uid": "16",
         "attack": 16.9,
         "name": "B-wing"
     },
     {
         "description": "A Starship",
-        "uid": "31",
+        "uid": "17",
         "attack": 115,
         "name": "Republic Cruiser"
     },
     {
         "description": "A Starship",
-        "uid": "32",
+        "uid": "18",
         "attack": 3170,
         "name": "Droid control ship"
     },
     {
         "description": "A Starship",
-        "uid": "39",
+        "uid": "19",
         "attack": 11,
         "name": "Naboo fighter"
     },
     {
         "description": "A Starship",
-        "uid": "40",
+        "uid": "20",
         "attack": 76,
         "name": "Naboo Royal Starship"
     },
     {
         "description": "A Starship",
-        "uid": "43",
-        "attack": 39,
-        "name": "J-type diplomatic barge"
-    },
-    {
-        "description": "A Starship",
-        "uid": "41",
+        "uid": "21",
         "attack": 26.5,
         "name": "Scimitar"
     },
     {
         "description": "A Starship",
-        "uid": "47",
+        "uid": "22",
+        "attack": 39,
+        "name": "J-type diplomatic barge"
+    },
+    {
+        "description": "A Starship",
+        "uid": "23",
         "attack": 390,
         "name": "AA-9 Coruscant freighter"
     },
     {
         "description": "A Starship",
-        "uid": "48",
+        "uid": "24",
         "attack": 8,
         "name": "Jedi starfighter"
     },
     {
         "description": "A Starship",
-        "uid": "52",
-        "attack": 752,
-        "name": "Republic Assault ship"
-    },
-    {
-        "description": "A Starship",
-        "uid": "49",
+        "uid": "25",
         "attack": 47.9,
         "name": "H-type Nubian yacht"
     },
     {
         "description": "A Starship",
-        "uid": "59",
-        "attack": 1088,
-        "name": "Trade Federation cruiser"
+        "uid": "26",
+        "attack": 752,
+        "name": "Republic Assault ship"
     },
     {
         "description": "A Starship",
-        "uid": "58",
+        "uid": "27",
         "attack": 15.2,
         "name": "Solar Sailer"
     },
     {
         "description": "A Starship",
-        "uid": "61",
+        "uid": "28",
+        "attack": 1088,
+        "name": "Trade Federation cruiser"
+    },
+    {
+        "description": "A Starship",
+        "uid": "29",
         "attack": 18.5,
         "name": "Theta-class T-2c shuttle"
     },
     {
         "description": "A Starship",
-        "uid": "63",
+        "uid": "30",
         "attack": 1137,
         "name": "Republic attack cruiser"
     },
     {
         "description": "A Starship",
-        "uid": "64",
+        "uid": "31",
         "attack": 29.2,
         "name": "Naboo star skiff"
     },
     {
         "description": "A Starship",
-        "uid": "65",
+        "uid": "32",
         "attack": 5.47,
         "name": "Jedi Interceptor"
     },
     {
         "description": "A Starship",
-        "uid": "66",
+        "uid": "33",
         "attack": 14.5,
         "name": "arc-170"
     },
     {
         "description": "A Starship",
-        "uid": "68",
+        "uid": "34",
         "attack": 825,
         "name": "Banking clan frigte"
     },
     {
         "description": "A Starship",
-        "uid": "74",
+        "uid": "35",
         "attack": 6.71,
         "name": "Belbullab-22 starfighter"
     },
     {
         "description": "A Starship",
-        "uid": "75",
+        "uid": "36",
         "attack": 7.9,
         "name": "V-wing"
     }

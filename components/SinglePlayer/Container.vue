@@ -8,15 +8,16 @@ const battleDataStore = useBattleData()
 const userDataStore = useUserData()
 
 const showEnemyDeck = ref(false)
-const userDeckForSelectedResource = computed(() => {
-  return buildDeckForPlayer(battleDataStore.resource)
-})
-
 const currentBattleStats = ref({ enemyWon: 0, userWon: 0 })
 const enemyCard = ref()
 const selectedCard = ref()
 const showBattleEndScreen = ref(false)
 const battleResult = ref(true)
+
+const userDeckForSelectedResource = computed(() => {
+  return buildDeckForPlayer(battleDataStore.resource)
+})
+
 
 const { user } = useFirebaseAuth()
 const { updateUserData } = useFirestoreDatabase()

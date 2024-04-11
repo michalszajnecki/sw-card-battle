@@ -32,7 +32,7 @@ async function getPeople() {
 
 async function getStarships() {
     const { data } = await axios.get('https://www.swapi.tech/api/starships?page=1&limit=100');
-    const starships = await Promise.all(
+    const brokenStarships = await Promise.all(
         data.results.map(async (shipData) => {
             const { data } = await axios.get(shipData.url);
             // Fix for inconsistent data in one starship
@@ -46,6 +46,13 @@ async function getStarships() {
             };
         }),
     );
+    // Starships data is a mess, and we need to fix problem with missing uid's
+    const starships = brokenStarships
+        .sort((a, b) => parseInt(a.uid) - parseInt(b.uid))
+        .map((starship, index) => {
+            starship.uid = (index + 1).toString();
+            return starship;
+        });
     saveAsJSON('starships', starships);
 }
 

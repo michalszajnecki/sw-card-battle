@@ -5,24 +5,16 @@ useHead({
 
 import { defineModel } from 'vue';
 import { useUserData } from '../stores/userData'
+import { validatePassword, validateEmail } from '../services/inputValidators'
 
 const email = defineModel('email')
 const password = defineModel('password')
 const formProcessing = ref(false)
+const showLoginPanel = ref(true)
+
 const { user, registerUser, loginUser } = useFirebaseAuth()
 const { addNewUserData, getUserData } = useFirestoreDatabase()
 const userDataStore = useUserData()
-
-const showLoginPanel = ref(true)
-
-function checkPassword(password: string) {
-  return password.length >= 8 ? true : 'Password is too short'
-}
-
-function checkEmail(email: string) {
-  const re = /\S+@\S+\.\S+/;
-  return re.test(email) ? true : 'Enter correct e-mail address';
-}
 
 function togglePanels() {
   showLoginPanel.value = !showLoginPanel.value
@@ -77,8 +69,8 @@ async function moveToLobbyFlow(userFBData) {
         <v-sheet class="pa-2 ma-2 sheet-welcome">
           <p class="panel-desc">Register to unlock access to best Star Wars Card Battler of all times!</p>
           <v-form @submit.prevent="handleRegistration">
-            <v-text-field v-model="email" :rules="[checkEmail]" label="Email"></v-text-field>
-            <v-text-field v-model="password" :rules="[checkPassword]" label="Password"></v-text-field>
+            <v-text-field v-model="email" :rules="[validateEmail]" label="Email"></v-text-field>
+            <v-text-field v-model="password" :rules="[validatePassword]" label="Password"></v-text-field>
             <v-btn class="mt-2" type="submit" block>Submit</v-btn>
           </v-form>
           <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" block>Go to login</v-btn>
@@ -91,8 +83,8 @@ async function moveToLobbyFlow(userFBData) {
         <v-sheet class="pa-2 ma-2 sheet-welcome">
           <p class="panel-desc">Login to conquer galaxy!</p>
           <v-form @submit.prevent="handlelogin">
-            <v-text-field v-model="email" :rules="[checkEmail]" label="Email"></v-text-field>
-            <v-text-field v-model="password" :rules="[checkPassword]" label="Password"></v-text-field>
+            <v-text-field v-model="email" :rules="[validateEmail]" label="Email"></v-text-field>
+            <v-text-field v-model="password" :rules="[validatePassword]" label="Password"></v-text-field>
             <v-btn class="mt-2" type="submit" block>Submit</v-btn>
           </v-form>
           <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" block>Go to signup</v-btn>
