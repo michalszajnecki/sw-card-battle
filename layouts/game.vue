@@ -16,11 +16,11 @@ if (process.client) {
 
 async function logout() {
   await logoutUser()
-  // navigateTo('/login')
+  navigateTo('/login')
 }
 
 onMounted(async () => {
-  const userFBData = await getUserData(user().value.uid)
+  const userFBData = await getUserData(user.value.uid)
   await userDataStore.updateData(userFBData)
 })
 </script>

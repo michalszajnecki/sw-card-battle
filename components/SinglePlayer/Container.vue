@@ -36,7 +36,7 @@ async function battle(card) {
 
   const currentLocalStats = await userDataStore.captureBattleResult(battleResult.value)
 
-  await updateUserData(user().value.uid, currentLocalStats)
+  await updateUserData(user.value.uid, currentLocalStats)
 }
 
 function leaveBattleRoom() {

@@ -29,7 +29,7 @@ function togglePanels() {
 
 async function handleRegistration() {
   await registerUser(email.value, password.value)
-  const userFBData = await addNewUserData(user().value.uid)
+  const userFBData = await addNewUserData(user.value.uid)
   moveToLobbyFlow(userFBData)
 }
 
@@ -37,9 +37,9 @@ async function handlelogin() {
   await loginUser(email.value, password.value)
   console.log('222');
 
-  console.log({ user: user().value.uid });
+  console.log({ user: user.value.uid });
 
-  const userFBData = await getUserData(user().value.uid)
+  const userFBData = await getUserData(user.value.uid)
 
   console.log({ userFBData })
   moveToLobbyFlow(userFBData)

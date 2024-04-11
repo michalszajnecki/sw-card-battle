@@ -13,7 +13,7 @@ async function joinRoom(room) {
     resource: room.resourceType,
   })
 
-  updateGameRoom(user().value.uid, room.id)
+  updateGameRoom(user.value.uid, room.id)
   navigateTo(newRoutePath)
 }
 

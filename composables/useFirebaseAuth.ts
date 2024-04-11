@@ -3,8 +3,6 @@ import { createUserWithEmailAndPassword, User, signInWithEmailAndPassword } from
 export default function () {
     const { $auth } = useNuxtApp();
 
-    // const user = useState<User | null>('fb_user', () => null);
-
     const user = useCookie<User | null>('fb_user', {
         default: () => null,
         watch: true,
@@ -35,7 +33,10 @@ export default function () {
         try {
             const userCreds = await signInWithEmailAndPassword($auth, email, password);
             if (userCreds) {
-                user.value = userCreds.user;
+                console.log(22);
+                console.log(userCreds.user);
+
+                user.value = { uid: userCreds.user.uid, stsTokenManager: userCreds.user?.stsTokenManager };
                 return user.value;
             }
         } catch (error: unknown) {
