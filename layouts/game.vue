@@ -45,7 +45,10 @@ onMounted(async () => {
 </template>
 
 <style lang="scss">
+html,
+body,
 .game-layout {
+  overflow-y: auto;
   background: linear-gradient(180deg, #292847, #0E0D1F);
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);

@@ -3,46 +3,55 @@ useHead({
   title: 'Login'
 })
 
-
-
 import { defineModel } from 'vue';
 import { useUserData } from '../stores/userData'
 
 const email = defineModel('email')
 const password = defineModel('password')
+const formProcessing = ref(false)
 const { user, registerUser, loginUser } = useFirebaseAuth()
 const { addNewUserData, getUserData } = useFirestoreDatabase()
 const userDataStore = useUserData()
 
 const showLoginPanel = ref(true)
 
-function checkData(data) {
-  // console.log(data);
-  return true
+function checkPassword(password: string) {
+  return password.length >= 8 ? true : 'Password is too short'
+}
+
+function checkEmail(email: string) {
+  const re = /\S+@\S+\.\S+/;
+  return re.test(email) ? true : 'Enter correct e-mail address';
 }
 
 function togglePanels() {
-  console.log(1);
-
   showLoginPanel.value = !showLoginPanel.value
 }
 
 async function handleRegistration() {
-  await registerUser(email.value, password.value)
-  const userFBData = await addNewUserData(user.value.uid)
-  moveToLobbyFlow(userFBData)
+  formProcessing.value = true
+  try {
+    await registerUser(email.value, password.value)
+    const userFBData = await addNewUserData(user.value.uid)
+    moveToLobbyFlow(userFBData)
+    formProcessing.value = false
+  } catch (error) {
+    console.error(error);
+    formProcessing.value = false
+  }
 }
 
 async function handlelogin() {
-  await loginUser(email.value, password.value)
-  console.log('222');
-
-  console.log({ user: user.value.uid });
-
-  const userFBData = await getUserData(user.value.uid)
-
-  console.log({ userFBData })
-  moveToLobbyFlow(userFBData)
+  formProcessing.value = true
+  try {
+    await loginUser(email.value, password.value)
+    const userFBData = await getUserData(user.value.uid)
+    moveToLobbyFlow(userFBData)
+    formProcessing.value = false
+  } catch (error) {
+    console.error(error);
+    formProcessing.value = false
+  }
 }
 
 async function moveToLobbyFlow(userFBData) {
@@ -68,8 +77,8 @@ async function moveToLobbyFlow(userFBData) {
         <v-sheet class="pa-2 ma-2 sheet-welcome">
           <p class="panel-desc">Register to unlock access to best Star Wars Card Battler of all times!</p>
           <v-form @submit.prevent="handleRegistration">
-            <v-text-field v-model="email" :rules="[checkData]" label="Email"></v-text-field>
-            <v-text-field v-model="password" :rules="[checkData]" label="Password"></v-text-field>
+            <v-text-field v-model="email" :rules="[checkEmail]" label="Email"></v-text-field>
+            <v-text-field v-model="password" :rules="[checkPassword]" label="Password"></v-text-field>
             <v-btn class="mt-2" type="submit" block>Submit</v-btn>
           </v-form>
           <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" block>Go to login</v-btn>
@@ -82,8 +91,8 @@ async function moveToLobbyFlow(userFBData) {
         <v-sheet class="pa-2 ma-2 sheet-welcome">
           <p class="panel-desc">Login to conquer galaxy!</p>
           <v-form @submit.prevent="handlelogin">
-            <v-text-field v-model="email" :rules="[checkData]" label="Email"></v-text-field>
-            <v-text-field v-model="password" :rules="[checkData]" label="Password"></v-text-field>
+            <v-text-field v-model="email" :rules="[checkEmail]" label="Email"></v-text-field>
+            <v-text-field v-model="password" :rules="[checkPassword]" label="Password"></v-text-field>
             <v-btn class="mt-2" type="submit" block>Submit</v-btn>
           </v-form>
           <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" block>Go to signup</v-btn>
@@ -112,6 +121,14 @@ async function moveToLobbyFlow(userFBData) {
 //     left: 0;
 //   }
 // }
+.v-messages__message {
+  font-weight: bold;
+  color: #ff6a00;
+}
+
+.v-input {
+  margin-bottom: 1.5rem;
+}
 
 .panel-desc {
   color: #FC0858;
