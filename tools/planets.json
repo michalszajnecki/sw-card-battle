@@ -1,1 +1,422 @@
-[{"description":"A planet.","uid":"1","attack":200000,"name":"Tatooine"},{"description":"A planet.","uid":"2","attack":2000000000,"name":"Alderaan"},{"description":"A planet.","uid":"3","attack":1000,"name":"Yavin IV"},{"description":"A planet.","uid":"4","attack":0,"name":"Hoth"},{"description":"A planet.","uid":"5","attack":0,"name":"Dagobah"},{"description":"A planet.","uid":"6","attack":6000000,"name":"Bespin"},{"description":"A planet.","uid":"7","attack":30000000,"name":"Endor"},{"description":"A planet.","uid":"8","attack":4500000000,"name":"Naboo"},{"description":"A planet.","uid":"9","attack":1000000000000,"name":"Coruscant"},{"description":"A planet.","uid":"10","attack":1000000000,"name":"Kamino"},{"description":"A planet.","uid":"11","attack":100000000000,"name":"Geonosis"},{"description":"A planet.","uid":"12","attack":95000000,"name":"Utapau"},{"description":"A planet.","uid":"13","attack":20000,"name":"Mustafar"},{"description":"A planet.","uid":"14","attack":45000000,"name":"Kashyyyk"},{"description":"A planet.","uid":"15","attack":1000000,"name":"Polis Massa"},{"description":"A planet.","uid":"16","attack":19000000,"name":"Mygeeto"},{"description":"A planet.","uid":"17","attack":8500000,"name":"Felucia"},{"description":"A planet.","uid":"18","attack":10000000,"name":"Cato Neimoidia"},{"description":"A planet.","uid":"19","attack":1400000000,"name":"Saleucami"},{"description":"A planet.","uid":"20","attack":0,"name":"Stewjon"},{"description":"A planet.","uid":"21","attack":22000000000,"name":"Eriadu"},{"description":"A planet.","uid":"22","attack":3000000000,"name":"Corellia"},{"description":"A planet.","uid":"23","attack":1300000000,"name":"Rodia"},{"description":"A planet.","uid":"24","attack":7000000000,"name":"Nal Hutta"},{"description":"A planet.","uid":"25","attack":1000,"name":"Dantooine"},{"description":"A planet.","uid":"26","attack":62000000,"name":"Bestine IV"},{"description":"A planet.","uid":"27","attack":4000000000,"name":"Ord Mantell"},{"description":"A planet.","uid":"28","attack":0,"name":"unknown"},{"description":"A planet.","uid":"29","attack":42000000,"name":"Trandosha"},{"description":"A planet.","uid":"30","attack":300000000,"name":"Socorro"},{"description":"A planet.","uid":"31","attack":27000000000,"name":"Mon Cala"},{"description":"A planet.","uid":"32","attack":1200000000,"name":"Chandrila"},{"description":"A planet.","uid":"33","attack":18500000000,"name":"Sullust"},{"description":"A planet.","uid":"34","attack":11000000,"name":"Toydaria"},{"description":"A planet.","uid":"35","attack":2000000000,"name":"Malastare"},{"description":"A planet.","uid":"36","attack":5200,"name":"Dathomir"},{"description":"A planet.","uid":"37","attack":1500000000,"name":"Ryloth"},{"description":"A planet.","uid":"38","attack":0,"name":"Aleen Minor"},{"description":"A planet.","uid":"39","attack":421000000,"name":"Vulpter"},{"description":"A planet.","uid":"40","attack":0,"name":"Troiken"},{"description":"A planet.","uid":"41","attack":0,"name":"Tund"},{"description":"A planet.","uid":"42","attack":705300,"name":"Haruun Kal"},{"description":"A planet.","uid":"43","attack":450000000,"name":"Cerea"},{"description":"A planet.","uid":"44","attack":500000000,"name":"Glee Anselm"},{"description":"A planet.","uid":"45","attack":0,"name":"Iridonia"},{"description":"A planet.","uid":"46","attack":0,"name":"Tholoth"},{"description":"A planet.","uid":"47","attack":0,"name":"Iktotch"},{"description":"A planet.","uid":"48","attack":0,"name":"Quermia"},{"description":"A planet.","uid":"49","attack":0,"name":"Dorin"},{"description":"A planet.","uid":"50","attack":3500000000,"name":"Champala"},{"description":"A planet.","uid":"51","attack":0,"name":"Mirial"},{"description":"A planet.","uid":"52","attack":0,"name":"Serenno"},{"description":"A planet.","uid":"53","attack":0,"name":"Concord Dawn"},{"description":"A planet.","uid":"54","attack":0,"name":"Zolan"},{"description":"A planet.","uid":"55","attack":500000000,"name":"Ojom"},{"description":"A planet.","uid":"56","attack":500000000000,"name":"Skako"},{"description":"A planet.","uid":"57","attack":5000000000,"name":"Muunilinst"},{"description":"A planet.","uid":"58","attack":0,"name":"Shili"},{"description":"A planet.","uid":"59","attack":4000000000,"name":"Kalee"},{"description":"A planet.","uid":"60","attack":0,"name":"Umbara"}]
+[
+    {
+        "description": "A planet.",
+        "uid": "1",
+        "attack": 200000,
+        "name": "Tatooine",
+        "img": "cardImages/planets/tatooine.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "2",
+        "attack": 2000000000,
+        "name": "Alderaan",
+        "img": "cardImages/planets/alderaan.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "3",
+        "attack": 1000,
+        "name": "Yavin IV",
+        "img": "cardImages/planets/yavin_iv.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "4",
+        "attack": 0,
+        "name": "Hoth",
+        "img": "cardImages/planets/hoth.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "5",
+        "attack": 0,
+        "name": "Dagobah",
+        "img": "cardImages/planets/dagobah.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "6",
+        "attack": 6000000,
+        "name": "Bespin",
+        "img": "cardImages/planets/bespin.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "7",
+        "attack": 30000000,
+        "name": "Endor",
+        "img": "cardImages/planets/endor.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "8",
+        "attack": 4500000000,
+        "name": "Naboo",
+        "img": "cardImages/planets/naboo.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "9",
+        "attack": 1000000000000,
+        "name": "Coruscant",
+        "img": "cardImages/planets/coruscant.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "10",
+        "attack": 1000000000,
+        "name": "Kamino",
+        "img": "cardImages/planets/kamino.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "11",
+        "attack": 100000000000,
+        "name": "Geonosis",
+        "img": "cardImages/planets/geonosis.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "12",
+        "attack": 95000000,
+        "name": "Utapau",
+        "img": "cardImages/planets/utapau.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "13",
+        "attack": 20000,
+        "name": "Mustafar",
+        "img": "cardImages/planets/mustafar.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "14",
+        "attack": 45000000,
+        "name": "Kashyyyk",
+        "img": "cardImages/planets/kashyyyk.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "15",
+        "attack": 1000000,
+        "name": "Polis Massa",
+        "img": "cardImages/planets/polis_massa.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "16",
+        "attack": 19000000,
+        "name": "Mygeeto",
+        "img": "cardImages/planets/mygeeto.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "17",
+        "attack": 8500000,
+        "name": "Felucia",
+        "img": "cardImages/planets/felucia.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "18",
+        "attack": 10000000,
+        "name": "Cato Neimoidia",
+        "img": "cardImages/planets/cato_neimoidia.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "19",
+        "attack": 1400000000,
+        "name": "Saleucami",
+        "img": "cardImages/planets/saleucami.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "20",
+        "attack": 0,
+        "name": "Stewjon",
+        "img": "cardImages/planets/stewjon.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "21",
+        "attack": 22000000000,
+        "name": "Eriadu",
+        "img": "cardImages/planets/eriadu.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "22",
+        "attack": 3000000000,
+        "name": "Corellia",
+        "img": "cardImages/planets/corellia.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "23",
+        "attack": 1300000000,
+        "name": "Rodia",
+        "img": "cardImages/planets/rodia.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "24",
+        "attack": 7000000000,
+        "name": "Nal Hutta",
+        "img": "cardImages/planets/nal_hutta.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "25",
+        "attack": 1000,
+        "name": "Dantooine",
+        "img": "cardImages/planets/dantooine.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "26",
+        "attack": 62000000,
+        "name": "Bestine IV",
+        "img": "cardImages/planets/bestine_iv.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "27",
+        "attack": 4000000000,
+        "name": "Ord Mantell",
+        "img": "cardImages/planets/ord_mantell.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "28",
+        "attack": 0,
+        "name": "unknown",
+        "img": "cardImages/planets/unknown.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "29",
+        "attack": 42000000,
+        "name": "Trandosha",
+        "img": "cardImages/planets/trandosha.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "30",
+        "attack": 300000000,
+        "name": "Socorro",
+        "img": "cardImages/planets/socorro.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "31",
+        "attack": 27000000000,
+        "name": "Mon Cala",
+        "img": "cardImages/planets/mon_cala.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "32",
+        "attack": 1200000000,
+        "name": "Chandrila",
+        "img": "cardImages/planets/chandrila.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "33",
+        "attack": 18500000000,
+        "name": "Sullust",
+        "img": "cardImages/planets/sullust.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "34",
+        "attack": 11000000,
+        "name": "Toydaria",
+        "img": "cardImages/planets/toydaria.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "35",
+        "attack": 2000000000,
+        "name": "Malastare",
+        "img": "cardImages/planets/malastare.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "36",
+        "attack": 5200,
+        "name": "Dathomir",
+        "img": "cardImages/planets/dathomir.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "37",
+        "attack": 1500000000,
+        "name": "Ryloth",
+        "img": "cardImages/planets/ryloth.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "38",
+        "attack": 0,
+        "name": "Aleen Minor",
+        "img": "cardImages/planets/aleen_minor.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "39",
+        "attack": 421000000,
+        "name": "Vulpter",
+        "img": "cardImages/planets/vulpter.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "40",
+        "attack": 0,
+        "name": "Troiken",
+        "img": "cardImages/planets/troiken.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "41",
+        "attack": 0,
+        "name": "Tund",
+        "img": "cardImages/planets/tund.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "42",
+        "attack": 705300,
+        "name": "Haruun Kal",
+        "img": "cardImages/planets/haruun_kal.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "43",
+        "attack": 450000000,
+        "name": "Cerea",
+        "img": "cardImages/planets/cerea.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "44",
+        "attack": 500000000,
+        "name": "Glee Anselm",
+        "img": "cardImages/planets/glee_anselm.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "45",
+        "attack": 0,
+        "name": "Iridonia",
+        "img": "cardImages/planets/iridonia.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "46",
+        "attack": 0,
+        "name": "Tholoth",
+        "img": "cardImages/planets/tholoth.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "47",
+        "attack": 0,
+        "name": "Iktotch",
+        "img": "cardImages/planets/iktotch.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "48",
+        "attack": 0,
+        "name": "Quermia",
+        "img": "cardImages/planets/quermia.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "49",
+        "attack": 0,
+        "name": "Dorin",
+        "img": "cardImages/planets/dorin.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "50",
+        "attack": 3500000000,
+        "name": "Champala",
+        "img": "cardImages/planets/champala.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "51",
+        "attack": 0,
+        "name": "Mirial",
+        "img": "cardImages/planets/mirial.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "52",
+        "attack": 0,
+        "name": "Serenno",
+        "img": "cardImages/planets/serenno.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "53",
+        "attack": 0,
+        "name": "Concord Dawn",
+        "img": "cardImages/planets/concord_dawn.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "54",
+        "attack": 0,
+        "name": "Zolan",
+        "img": "cardImages/planets/zolan.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "55",
+        "attack": 500000000,
+        "name": "Ojom",
+        "img": "cardImages/planets/ojom.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "56",
+        "attack": 500000000000,
+        "name": "Skako",
+        "img": "cardImages/planets/skako.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "57",
+        "attack": 5000000000,
+        "name": "Muunilinst",
+        "img": "cardImages/planets/muunilinst.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "58",
+        "attack": 0,
+        "name": "Shili",
+        "img": "cardImages/planets/shili.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "59",
+        "attack": 4000000000,
+        "name": "Kalee",
+        "img": "cardImages/planets/kalee.webp"
+    },
+    {
+        "description": "A planet.",
+        "uid": "60",
+        "attack": 0,
+        "name": "Umbara",
+        "img": "cardImages/planets/umbara.webp"
+    }
+]

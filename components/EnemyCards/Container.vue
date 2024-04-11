@@ -54,32 +54,32 @@ onMounted(() => {
 
 
 
-  &.card-0 {
+  &.card-1 {
     animation-delay: 1s;
     transform: rotate(190deg);
     left: 4rem;
   }
 
-  &.card-1 {
+  &.card-2 {
     animation-delay: 2s;
     transform: rotate(185deg);
     left: 2rem;
 
   }
 
-  &.card-2 {
+  &.card-3 {
     animation-delay: 5s;
     transform: rotate(180deg);
     animation: selectedCard 2s forwards;
   }
 
-  &.card-3 {
+  &.card-4 {
     animation-delay: 3s;
     transform: rotate(175deg);
     left: -2rem;
   }
 
-  &.card-4 {
+  &.card-5 {
     animation-delay: 4s;
     transform: rotate(170deg);
     left: -4rem;

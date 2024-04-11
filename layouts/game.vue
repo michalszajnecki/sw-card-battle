@@ -45,37 +45,13 @@ onMounted(async () => {
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Lunasima:wght@400;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
-
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
 html,
 body,
-#__nuxt,
 .game-layout {
-  margin: 0;
-  width: 100%;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #292847, #0E0D1F);
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
-  font-size: 10px; // reset for rems
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  overflow: hidden;
-}
-
-h1 {
-  font-family: "Poller One", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.game-layout {
-  background: linear-gradient(180deg, #292847, #0E0D1F);
 }
 
 .v-toolbar-title.app-title {

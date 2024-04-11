@@ -27,7 +27,7 @@ definePageMeta({
 <style lang="scss">
 .lobby {
   width: 100%;
-  max-width: 80rem;
+  max-width: 90rem;
   background: #00000059;
   padding: 3rem;
   margin: 2rem;

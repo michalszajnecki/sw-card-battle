@@ -1,11 +1,15 @@
 <script setup lang="ts">
 const card = defineModel('card')
 const cardIndex = defineModel('cardIndex')
+
+function imageLink(card) {
+  return card.description === 'A person within the Star Wars universe' ? `/${card.img}` : '/cardImages/generic-image.webp'
+}
 </script>
 
 <template>
-  <div class="card" v-if="card" :class="[`card-${cardIndex}`]"
-    :style="{ 'background-image': 'url(' + '/anakin.webp' + ')' }">
+  <div class="card card--player" v-if="card" :class="[`card-${cardIndex}`]"
+    :style="{ 'background-image': 'url(' + imageLink(card) + ')' }">
     <div class="shadow"></div>
     <div class="card-container">
       <CardName :name="card.name" />
@@ -28,6 +32,7 @@ const cardIndex = defineModel('cardIndex')
   cursor: pointer;
   margin: 2rem 0;
   transition: all ease 1s;
+
 
   &:hover {
     // scale: 2;

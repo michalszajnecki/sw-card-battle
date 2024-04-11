@@ -8,11 +8,12 @@ export default function () {
         watch: true,
     });
 
-    const registerUser = async (email: string, password: string): Promise<boolean> => {
+    const registerUser = async (email: string, password: string): Promise<unknown> => {
         try {
+            await logoutUser();
             const userCreds = await createUserWithEmailAndPassword($auth, email, password);
             if (userCreds) {
-                user.value = userCreds.user;
+                user.value = { uid: userCreds.user.uid, stsTokenManager: userCreds.user?.stsTokenManager };
                 return user.value;
             }
         } catch (error: unknown) {
@@ -29,13 +30,14 @@ export default function () {
         return true;
     };
 
-    const loginUser = async (email: string, password: string): Promise<boolean> => {
+    const loginUser = async (email: string, password: string): Promise<unknown> => {
         try {
+            await logoutUser();
             const userCreds = await signInWithEmailAndPassword($auth, email, password);
-            if (userCreds) {
-                console.log(22);
-                console.log(userCreds.user);
 
+            console.log({ userCreds });
+
+            if (userCreds) {
                 user.value = { uid: userCreds.user.uid, stsTokenManager: userCreds.user?.stsTokenManager };
                 return user.value;
             }

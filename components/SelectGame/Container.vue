@@ -31,14 +31,17 @@ async function createRoom(resourceType: string) {
 <template>
   <v-dialog v-model="singlePlayerDialog" width="auto">
     <v-card max-width="400" prepend-icon="mdi-sword-cross"
-      text="Test your luck with battle agains computer. Select resource type, and join private battle room. You will recive 5 random cards, giving you ability to play through 5 rounds. You can leave game after each round, but only best players stay till the end risking lovering their win-lose ratio!"
+      text="Test your luck by battling against the computer. Choose the type of resource you want to play with, and join a private battle room. You will receive 5 random cards, which will give you the ability to play through 5 rounds. You can leave the game after each round, but only the best players will stay till the end, risking lowering their win-lose ratio."
       title="Play against computer">
       <template v-slot:default>
         <p class="battle-resource-header">Select resource type!</p>
         <v-card class="battle-resource">
-          <v-btn class="ms-auto" text="Planet" @click="startSinglePlayerGame('planets')"></v-btn>
-          <v-btn class="ms-auto" text="People" @click="startSinglePlayerGame('people')"></v-btn>
-          <v-btn class="ms-auto" text="Starship" @click="startSinglePlayerGame('starships')"></v-btn>
+          <v-btn class="ms-auto" text="Planet" @click="startSinglePlayerGame('planets')"
+            data-test="single-player-dialog-resource-planets"></v-btn>
+          <v-btn class="ms-auto" text="People" @click="startSinglePlayerGame('people')"
+            data-test="single-player-dialog-resource-people"></v-btn>
+          <v-btn class="ms-auto" text="Starship" @click="startSinglePlayerGame('starships')"
+            data-test="single-player-dialog-resource-starships"></v-btn>
         </v-card>
       </template>
     </v-card>
@@ -46,7 +49,7 @@ async function createRoom(resourceType: string) {
 
   <v-dialog v-model="multiplayerDialog" width="auto">
     <v-card max-width="400" prepend-icon="mdi-sword-cross"
-      text="Fight agains other players and track your score after each turn. You will recive 5 random cards, giving you ability to play through 5 rounds. Each round require to spend one card. Think carefully, because not all cards are created equal!"
+      text="Engage in battles against other players and keep track of your score after each turn. At the beginning of the game, you will receive 5 random cards which will give you the ability to play through 5 rounds. Each round, you will need to use one of your cards. It's important to think carefully before using a card, as not all cards have the same value. You may want to consider saving your trump card for the final round."
       title="Host multiplayer game">
       <template v-slot:default>
         <p class="battle-resource-header">Select resource type!</p>

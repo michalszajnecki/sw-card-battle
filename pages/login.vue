@@ -3,46 +3,45 @@ useHead({
   title: 'Login'
 })
 
-
-
 import { defineModel } from 'vue';
 import { useUserData } from '../stores/userData'
+import { validatePassword, validateEmail } from '../services/inputValidators'
 
 const email = defineModel('email')
 const password = defineModel('password')
+const formProcessing = ref(false)
+const showLoginPanel = ref(true)
+
 const { user, registerUser, loginUser } = useFirebaseAuth()
 const { addNewUserData, getUserData } = useFirestoreDatabase()
 const userDataStore = useUserData()
 
-const showLoginPanel = ref(true)
-
-function checkData(data) {
-  // console.log(data);
-  return true
-}
-
 function togglePanels() {
-  console.log(1);
-
   showLoginPanel.value = !showLoginPanel.value
 }
 
 async function handleRegistration() {
-  await registerUser(email.value, password.value)
-  const userFBData = await addNewUserData(user.value.uid)
-  moveToLobbyFlow(userFBData)
+  formProcessing.value = true
+  try {
+    await registerUser(email.value, password.value)
+    const userFBData = await addNewUserData(user.value.uid)
+    moveToLobbyFlow(userFBData)
+    formProcessing.value = false
+  } catch (error) {
+    formProcessing.value = false
+  }
 }
 
 async function handlelogin() {
-  await loginUser(email.value, password.value)
-  console.log('222');
-
-  console.log({ user: user.value.uid });
-
-  const userFBData = await getUserData(user.value.uid)
-
-  console.log({ userFBData })
-  moveToLobbyFlow(userFBData)
+  formProcessing.value = true
+  try {
+    await loginUser(email.value, password.value)
+    const userFBData = await getUserData(user.value.uid)
+    moveToLobbyFlow(userFBData)
+    formProcessing.value = false
+  } catch (error) {
+    formProcessing.value = false
+  }
 }
 
 async function moveToLobbyFlow(userFBData) {
@@ -68,11 +67,14 @@ async function moveToLobbyFlow(userFBData) {
         <v-sheet class="pa-2 ma-2 sheet-welcome">
           <p class="panel-desc">Register to unlock access to best Star Wars Card Battler of all times!</p>
           <v-form @submit.prevent="handleRegistration">
-            <v-text-field v-model="email" :rules="[checkData]" label="Email"></v-text-field>
-            <v-text-field v-model="password" :rules="[checkData]" label="Password"></v-text-field>
-            <v-btn class="mt-2" type="submit" block>Submit</v-btn>
+            <v-text-field v-model="email" :rules="[validateEmail]" label="Email"
+              data-test="signup-email"></v-text-field>
+            <v-text-field v-model="password" :rules="[validatePassword]" label="Password"
+              data-test="signup-password"></v-text-field>
+            <v-btn class="mt-2" type="submit" data-test="signup-submit" block>Submit</v-btn>
           </v-form>
-          <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" block>Go to login</v-btn>
+          <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" data-test="set-form-signup"
+            block>Go to login</v-btn>
         </v-sheet>
       </v-col>
       <v-spacer></v-spacer>
@@ -82,11 +84,13 @@ async function moveToLobbyFlow(userFBData) {
         <v-sheet class="pa-2 ma-2 sheet-welcome">
           <p class="panel-desc">Login to conquer galaxy!</p>
           <v-form @submit.prevent="handlelogin">
-            <v-text-field v-model="email" :rules="[checkData]" label="Email"></v-text-field>
-            <v-text-field v-model="password" :rules="[checkData]" label="Password"></v-text-field>
-            <v-btn class="mt-2" type="submit" block>Submit</v-btn>
+            <v-text-field v-model="email" :rules="[validateEmail]" label="Email" data-test="login-email"></v-text-field>
+            <v-text-field v-model="password" :rules="[validatePassword]" label="Password"
+              data-test="login-password"></v-text-field>
+            <v-btn class="mt-2" type="submit" data-test="login-submit" block>Submit</v-btn>
           </v-form>
-          <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" block>Go to signup</v-btn>
+          <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" data-test="set-form-login"
+            block>Go to signup</v-btn>
 
         </v-sheet>
       </v-col>
@@ -112,6 +116,14 @@ async function moveToLobbyFlow(userFBData) {
 //     left: 0;
 //   }
 // }
+.v-messages__message {
+  font-weight: bold;
+  color: #ff6a00;
+}
+
+.v-input {
+  margin-bottom: 1.5rem;
+}
 
 .panel-desc {
   color: #FC0858;
@@ -131,6 +143,10 @@ async function moveToLobbyFlow(userFBData) {
   text-align: center;
   margin: 12rem auto 4rem;
   font-size: 3rem;
+
+  @media screen and (max-width: 580px) {
+    margin-top: 6rem;
+  }
 }
 
 .form-container {
