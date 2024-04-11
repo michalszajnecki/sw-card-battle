@@ -1,25 +1,9 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import {
-    getFirestore,
-    collection,
-    getDocs,
-    getDoc,
-    addDoc,
-    deleteDoc,
-    doc,
-    query,
-    where,
-    setDoc,
-    collectionGroup,
-    Timestamp,
-} from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
+
 export default defineNuxtPlugin(async (nuxtApp) => {
     const config = useRuntimeConfig();
-
-    console.log(config);
-    console.log('con' + config.FB_API_KEY);
-    console.log('proc' + process.env.FB_API_KEY);
 
     const firebaseConfig = {
         apiKey: config.public.FB_API_KEY,
@@ -31,16 +15,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         measurementId: config.public.FB_MEASUREMENT_ID,
     };
 
-    // const firebaseConfig = {
-    //     apiKey: 'AIzaSyAgMvjvTlx2bgU8MCs_Q3Z-SvboSuSd8aI',
-    //     authDomain: 'sw-battle-emarts.firebaseapp.com',
-    //     projectId: 'sw-battle-emarts',
-    //     storageBucket: 'sw-battle-emarts.appspot.com',
-    //     messagingSenderId: '988381200091',
-    //     appId: '1:988381200091:web:68fe19f409f322f852d6fe',
-    //     measurementId: 'G-GTP9WDE895',
-    // };
-
     const app = initializeApp(firebaseConfig);
 
     const auth = getAuth(app);
@@ -51,32 +25,4 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
     nuxtApp.vueApp.provide('firestore', firestore);
     nuxtApp.provide('firestore', firestore);
-
-    // const snapshotRef = collection(firestore, 'userStats');
-    // const snapshot = await getDocs(snapshotRef);
-
-    // const docs = Array.from(snapshot.docs).map((doc) => {
-    //     return {
-    //         ...doc.data(),
-    //     };
-    // });
-    // console.log({ docs });
 });
-
-//   import { firestoreDb } from "./firebase";
-
-//   export const queryByCollection = async (col: string) => {
-//     // @ts-ignore
-//     const colRef = collection(firestoreDb, col);
-
-//     const snapshot = await getDocs(colRef);
-
-//     const docs = Array.from(snapshot.docs).map((doc) => {
-//       return {
-//         ...doc.data(),
-//         id: doc.id,
-//       };
-//     });
-
-//     return docs;
-//   };

@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+import { useUserData } from '../stores/userData'
+const { user, logoutUser } = useFirebaseAuth()
+const { getUserData } = useFirestoreDatabase()
+const userDataStore = useUserData()
+
 if (process.client) {
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -7,6 +13,16 @@ if (process.client) {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   });
 }
+
+async function logout() {
+  await logoutUser()
+  // navigateTo('/login')
+}
+
+onMounted(async () => {
+  const userFBData = await getUserData(user().value.uid)
+  await userDataStore.updateData(userFBData)
+})
 </script>
 
 <template>
@@ -17,6 +33,7 @@ if (process.client) {
 
         <template v-slot:append>
           <StatsContainer />
+          <v-btn @click="logout()">LOGOUT</v-btn>
         </template>
       </v-app-bar>
 

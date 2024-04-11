@@ -19,10 +19,10 @@ async function startSinglePlayerGame(resourceType: string) {
 
 async function createRoom(resourceType: string) {
   multiplayerDialog.value = false
-  createNewGameroom(user.value.uid, resourceType)
+  createNewGameroom(user().value.uid, resourceType)
   const newRoutePath = await battleDataStore.assignNewGameRoom({
     resource: resourceType,
-    enemyId: user.value.uid,
+    enemyId: user().value.uid,
   })
   navigateTo(newRoutePath)
 }

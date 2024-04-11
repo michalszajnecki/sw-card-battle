@@ -44,12 +44,12 @@ const { addNewUserData, getUserData, updateUserData, observeRoomStatus, getRoomD
 async function selectCard(card) {
   usedCards.push(card.uid)
   selectedCard.value = card
-  const host = user.value.uid === room.value.ownerId
+  const host = user().value.uid === room.value.ownerId
   await updateGameRoomCard(card.uid, room.value.ownerId, host)
 }
 
 async function battle() {
-  const host = user.value.uid === room.value.ownerId
+  const host = user().value.uid === room.value.ownerId
   showBattleEndScreen.value = true
   const hostCard = await generateCardData(room.value.resourceType, room.value.hostCard)
   const guestCard = await generateCardData(room.value.resourceType, room.value.guestCard)
@@ -64,12 +64,12 @@ async function battle() {
   }
 
   const currentLocalStats = await userDataStore.captureBattleResult(battleResult.value)
-  await updateUserData(user.value.uid, currentLocalStats)
+  await updateUserData(user().value.uid, currentLocalStats)
   await clearGameRoomCards(room.value.ownerId)
 }
 
 async function leaveBattleRoom() {
-  const host = user.value.uid === route?.params?.gameRoomId
+  const host = user().value.uid === route?.params?.gameRoomId
   if (host) {
     await removeRoom(route?.params?.gameRoomId)
   }
