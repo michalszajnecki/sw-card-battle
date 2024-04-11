@@ -36,7 +36,7 @@ body,
   width: 100%;
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
-  font-size: 10px; // reset for rems
+  font-size: 10px !important; // reset for rems
   font-family: 'Noto Sans', sans-serif;
   font-weight: 300;
   font-style: normal;
