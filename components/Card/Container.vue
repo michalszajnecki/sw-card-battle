@@ -9,7 +9,6 @@ const cardIndex = defineModel('cardIndex')
     <div class="shadow"></div>
     <div class="card-container">
       <CardName :name="card.name" />
-      <CardDescription :description="card.description" />
       <CardAttack :attack="card.attack" />
     </div>
   </div>
@@ -17,15 +16,16 @@ const cardIndex = defineModel('cardIndex')
 
 <style lang="scss" scoped>
 .card {
-  width: 10rem;
-  height: 12.5rem;
+  width: 9rem;
+  height: 14.5rem;
   border-radius: 1rem;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 0 50px 15px #48abe0;
+  // box-shadow: 0 0 50px 15px #48abe0;
   color: #fff;
   position: relative;
-
+  user-select: none;
+  cursor: pointer;
   margin: 2rem 0;
   transition: all ease 1s;
 
@@ -36,8 +36,12 @@ const cardIndex = defineModel('cardIndex')
   }
 
   &.card-0 {
-    transform: rotate(-30deg);
+    transform: rotate(-10deg);
     top: 4rem;
+
+    @media screen and (max-width: 580px) {
+      left: 4rem;
+    }
 
     &:hover {
       top: -2rem;
@@ -45,8 +49,12 @@ const cardIndex = defineModel('cardIndex')
   }
 
   &.card-1 {
-    transform: rotate(-15deg);
+    transform: rotate(-5deg);
     top: 4rem;
+
+    @media screen and (max-width: 580px) {
+      left: 2rem;
+    }
 
     &:hover {
       top: -2rem;
@@ -63,8 +71,12 @@ const cardIndex = defineModel('cardIndex')
   }
 
   &.card-3 {
-    transform: rotate(15deg);
+    transform: rotate(5deg);
     top: 4rem;
+
+    @media screen and (max-width: 580px) {
+      left: -2rem;
+    }
 
     &:hover {
       top: -2rem;
@@ -72,8 +84,12 @@ const cardIndex = defineModel('cardIndex')
   }
 
   &.card-4 {
-    transform: rotate(30deg);
+    transform: rotate(10deg);
     top: 4rem;
+
+    @media screen and (max-width: 580px) {
+      left: -4rem;
+    }
 
     &:hover {
       top: -2rem;

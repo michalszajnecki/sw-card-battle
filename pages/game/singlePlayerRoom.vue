@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useBattleData } from '../stores/battleData';
 import { useUserData } from '../stores/userData';
-import { generateCardData, getCardForComputerPlayer, buildDeckForPlayer } from '../../services/generateCardData';
-import { onDeactivated, onMounted, ref, computed, nextTick } from 'vue';
+import { getCardForComputerPlayer, buildDeckForPlayer } from '../../services/generateCardData';
+import { onMounted, ref, computed, nextTick } from 'vue';
+
 useHead({
   title: 'Battle'
 })
@@ -12,49 +13,35 @@ definePageMeta({
     'auth'
   ]
 });
+
 const battleDataStore = useBattleData()
 const userDataStore = useUserData()
-const route = useRoute()
-
-const battleResource = ref(battleDataStore.resource)
-const enemyStatus = ref(battleDataStore.enemyStatus)
-const room = ref()
 const showEnemyDeck = ref(false)
-const canChooseCard = ref(false)
-const userDeckForSelectedResource = computed(() => {
-  return buildDeckForPlayer(battleDataStore.resource)
-})
-
 const currentBattleStats = ref({ enemyWon: 0, userWon: 0 })
-
-const timeSpentInRoom = ref(0)
 const enemyCard = ref()
 const selectedCard = ref()
-let timeInterval;
-
 const showBattleEndScreen = ref(false)
 const battleResult = ref(true)
 const usedCards: string[] = []
 
-const { user, registerUser, loginUser } = useFirebaseAuth()
-const { addNewUserData, getUserData, updateUserData, observeRoomStatus, getRoomData, updateGameRoomCard, clearGameRoomCards, removeRoom } = useFirestoreDatabase()
+const { user } = useFirebaseAuth()
+const { updateUserData } = useFirestoreDatabase()
 
+const userDeckForSelectedResource = computed(() => {
+  return buildDeckForPlayer(battleDataStore.resource)
+})
 
+onMounted(() => {
+  showEnemyDeck.value = true;
+  enemyCard.value = getCardForComputerPlayer(battleDataStore.resource)
+})
 
-async function selectCard(card) {
+async function battle(card) {
   usedCards.push(card.uid)
   selectedCard.value = card
-  const host = user.value.uid === room.value.ownerId
-  await updateGameRoomCard(card.uid, room.value.ownerId, host)
-}
-
-async function battle() {
-  const host = user.value.uid === room.value.ownerId
   showBattleEndScreen.value = true
-  const hostCard = await generateCardData(room.value.resourceType, room.value.hostCard)
-  const guestCard = await generateCardData(room.value.resourceType, room.value.guestCard)
-  enemyCard.value = guestCard
-  const result = host ? guestCard.attack < hostCard.attack : guestCard.attack > hostCard.attack;
+
+  const result = enemyCard.value.attack < card.attack;
   battleResult.value = result;
 
   if (result) {
@@ -64,59 +51,30 @@ async function battle() {
   }
 
   const currentLocalStats = await userDataStore.captureBattleResult(battleResult.value)
+
+
   await updateUserData(user.value.uid, currentLocalStats)
-  await clearGameRoomCards(room.value.ownerId)
 }
 
-async function leaveBattleRoom() {
-  const host = user.value.uid === route?.params?.gameRoomId
-  if (host) {
-    await removeRoom(route?.params?.gameRoomId)
+async function playAgain() {
+  if (battleDataStore.enemyId !== 'computer') {
+    leaveBattleRoom()
+  } else {
+    showEnemyDeck.value = false;
+    showBattleEndScreen.value = false
+    enemyCard.value = getCardForComputerPlayer(battleDataStore.resource)
+    await nextTick()
+    showEnemyDeck.value = true;
   }
+}
+
+function leaveBattleRoom() {
   navigateTo('/game/lobby')
 }
-
-console.log(route?.params?.gameRoomId)
-
 
 function cardDisabled(card) {
   return usedCards.includes(card.uid)
 }
-
-async function captureFBEvents(FBSnapshot) {
-  room.value = await getRoomData(route?.params?.gameRoomId)
-
-  if (!room.value.guestId || !room.value.ownerId) {
-    showEnemyDeck.value = false;
-    return
-  }
-
-  showEnemyDeck.value = true;
-
-  if (room.value.guestId !== room.value.ownerId && !room.value.guestCard) {
-    canChooseCard.value = true
-    return
-  }
-
-  if (room.value.guestId === room.value.ownerId && !room.value.hostCard) {
-    canChooseCard.value = true
-    return
-  }
-
-  if (room.value.hostCard && room.value.guestCard) {
-    battle()
-  }
-
-}
-
-let roomObserver;
-
-onMounted(() => {
-  showEnemyDeck.value = false;
-  roomObserver = observeRoomStatus(route?.params?.gameRoomId, captureFBEvents)
-})
-
-
 </script>
 
 <template>
@@ -140,21 +98,9 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="battle-result-score">
-          <div class="battle-result-score-block">
-            <p class="battle-result-score-text">LOST</p>
-            <p class="battle-result-score-result">{{ currentBattleStats.enemyWon }}</p>
-          </div>
-          <div class="battle-result-score-block">
-            <p class="battle-result-score-text">WON</p>
-            <p class="battle-result-score-result">{{ currentBattleStats.userWon }}</p>
-          </div>
-        </div>
-
         <div class="battle-results-options">
-          <v-btn class="ms-auto" text="Play again" @click="showBattleEndScreen = false"
-            v-if="usedCards.length !== 5"></v-btn>
-          <v-btn class="ms-auto" text="Leave" @click="leaveBattleRoom()" v-if="usedCards.length === 5"></v-btn>
+          <v-btn class="ms-auto" text="Leave" @click="leaveBattleRoom()"></v-btn>
+          <v-btn class="ms-auto" text="Play again" @click="playAgain()" :disabled="usedCards.length >= 5"></v-btn>
         </div>
 
       </v-card>
@@ -164,17 +110,12 @@ onMounted(() => {
       <EnemyCardsContainer v-for="(card, index) in userDeckForSelectedResource" :key="index" :card-index="index" />
     </div>
 
-    <div class="battle-spacer" :class="{
-      'battle-spacer--no-enemy': showEnemyDeck === false
-    }">
-      <h1 class="phase-type" v-show="!showBattleEndScreen">{{ showEnemyDeck && canChooseCard ? 'ATTACK PHASE' :
-      'AWAITING ENEMY' }}</h1>
+    <div class="battle-spacer">
+      <h1 class="phase-type" v-show="!showBattleEndScreen">ATTACK PHASE</h1>
     </div>
 
-    <div class="my-deck" :class="{
-      'my-deck--no-enemy': canChooseCard === false
-    }">
-      <CardContainer v-for="(card, index) in userDeckForSelectedResource" :key="index" @click="selectCard(card)"
+    <div class="my-deck">
+      <CardContainer v-for="(card, index) in userDeckForSelectedResource" :key="index" @click="battle(card)"
         :card="card" :class="{ 'is-disabled': cardDisabled(card) }" :card-index="index" />
     </div>
   </div>
@@ -213,10 +154,6 @@ onMounted(() => {
   margin: 10rem auto;
   position: relative;
   opacity: .3;
-
-  &.battle-spacer--no-enemy {
-    margin-top: calc(10rem + 18.5rem);
-  }
 }
 
 .phase-type {
@@ -232,12 +169,6 @@ onMounted(() => {
 .my-deck,
 .enemy-deck {
   display: flex;
-}
-
-.my-deck {
-  &.my-deck--no-enemy {
-    pointer-events: none;
-  }
 }
 
 .card.is-disabled {
@@ -302,30 +233,5 @@ onMounted(() => {
     width: 12rem;
     margin: 1rem !important;
   }
-}
-
-
-.battle-result-score {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.battle-result-score-block {
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: #282645;
-  border: .2rem solid #FC0858;
-  padding: 0.5rem 2rem;
-  border-radius: 1rem;
-  margin: 1rem;
-}
-
-.battle-result-score-text {
-  font-size: 1rem;
-}
-
-.battle-result-score-result {
-  text-align: center;
 }
 </style>
