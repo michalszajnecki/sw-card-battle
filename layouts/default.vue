@@ -32,6 +32,7 @@ html,
 body,
 #__nuxt,
 .default-layout {
+  overflow-y: auto;
   margin: 0;
   width: 100%;
   min-height: 100vh;
@@ -50,6 +51,7 @@ h1 {
 
 .default-layout {
   background-position: center;
+  background-size: cover;
   background-image: url('/login-screen.webp');
 }
 </style>

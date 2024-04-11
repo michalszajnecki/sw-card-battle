@@ -131,6 +131,10 @@ async function moveToLobbyFlow(userFBData) {
   text-align: center;
   margin: 12rem auto 4rem;
   font-size: 3rem;
+
+  @media screen and (max-width: 580px) {
+    margin-top: 6rem;
+  }
 }
 
 .form-container {

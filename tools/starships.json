@@ -1,1 +1,218 @@
-[{"description":"A Starship","uid":"2","attack":150,"name":"CR90 corvette"},{"description":"A Starship","uid":"3","attack":1600,"name":"Star Destroyer"},{"description":"A Starship","uid":"5","attack":38,"name":"Sentinel-class landing craft"},{"description":"A Starship","uid":"9","attack":120000,"name":"Death Star"},{"description":"A Starship","uid":"11","attack":14,"name":"Y-wing"},{"description":"A Starship","uid":"10","attack":34.37,"name":"Millennium Falcon"},{"description":"A Starship","uid":"13","attack":9.2,"name":"TIE Advanced x1"},{"description":"A Starship","uid":"15","attack":19000,"name":"Executor"},{"description":"A Starship","uid":"12","attack":12.5,"name":"X-wing"},{"description":"A Starship","uid":"17","attack":90,"name":"Rebel transport"},{"description":"A Starship","uid":"21","attack":21.5,"name":"Slave 1"},{"description":"A Starship","uid":"22","attack":20,"name":"Imperial shuttle"},{"description":"A Starship","uid":"23","attack":300,"name":"EF76 Nebulon-B escort frigate"},{"description":"A Starship","uid":"28","attack":9.6,"name":"A-wing"},{"description":"A Starship","uid":"27","attack":1200,"name":"Calamari Cruiser"},{"description":"A Starship","uid":"29","attack":16.9,"name":"B-wing"},{"description":"A Starship","uid":"31","attack":115,"name":"Republic Cruiser"},{"description":"A Starship","uid":"32","attack":3170,"name":"Droid control ship"},{"description":"A Starship","uid":"39","attack":11,"name":"Naboo fighter"},{"description":"A Starship","uid":"40","attack":76,"name":"Naboo Royal Starship"},{"description":"A Starship","uid":"43","attack":39,"name":"J-type diplomatic barge"},{"description":"A Starship","uid":"41","attack":26.5,"name":"Scimitar"},{"description":"A Starship","uid":"47","attack":390,"name":"AA-9 Coruscant freighter"},{"description":"A Starship","uid":"48","attack":8,"name":"Jedi starfighter"},{"description":"A Starship","uid":"52","attack":752,"name":"Republic Assault ship"},{"description":"A Starship","uid":"49","attack":47.9,"name":"H-type Nubian yacht"},{"description":"A Starship","uid":"59","attack":1088,"name":"Trade Federation cruiser"},{"description":"A Starship","uid":"58","attack":15.2,"name":"Solar Sailer"},{"description":"A Starship","uid":"61","attack":18.5,"name":"Theta-class T-2c shuttle"},{"description":"A Starship","uid":"63","attack":1137,"name":"Republic attack cruiser"},{"description":"A Starship","uid":"64","attack":29.2,"name":"Naboo star skiff"},{"description":"A Starship","uid":"65","attack":5.47,"name":"Jedi Interceptor"},{"description":"A Starship","uid":"66","attack":14.5,"name":"arc-170"},{"description":"A Starship","uid":"68","attack":825,"name":"Banking clan frigte"},{"description":"A Starship","uid":"74","attack":6.71,"name":"Belbullab-22 starfighter"},{"description":"A Starship","uid":"75","attack":7.9,"name":"V-wing"}]
+[
+    {
+        "description": "A Starship",
+        "uid": "2",
+        "attack": 150,
+        "name": "CR90 corvette"
+    },
+    {
+        "description": "A Starship",
+        "uid": "3",
+        "attack": 1600,
+        "name": "Star Destroyer"
+    },
+    {
+        "description": "A Starship",
+        "uid": "5",
+        "attack": 38,
+        "name": "Sentinel-class landing craft"
+    },
+    {
+        "description": "A Starship",
+        "uid": "9",
+        "attack": 120000,
+        "name": "Death Star"
+    },
+    {
+        "description": "A Starship",
+        "uid": "11",
+        "attack": 14,
+        "name": "Y-wing"
+    },
+    {
+        "description": "A Starship",
+        "uid": "10",
+        "attack": 34.37,
+        "name": "Millennium Falcon"
+    },
+    {
+        "description": "A Starship",
+        "uid": "13",
+        "attack": 9.2,
+        "name": "TIE Advanced x1"
+    },
+    {
+        "description": "A Starship",
+        "uid": "15",
+        "attack": 19000,
+        "name": "Executor"
+    },
+    {
+        "description": "A Starship",
+        "uid": "12",
+        "attack": 12.5,
+        "name": "X-wing"
+    },
+    {
+        "description": "A Starship",
+        "uid": "17",
+        "attack": 90,
+        "name": "Rebel transport"
+    },
+    {
+        "description": "A Starship",
+        "uid": "21",
+        "attack": 21.5,
+        "name": "Slave 1"
+    },
+    {
+        "description": "A Starship",
+        "uid": "22",
+        "attack": 20,
+        "name": "Imperial shuttle"
+    },
+    {
+        "description": "A Starship",
+        "uid": "23",
+        "attack": 300,
+        "name": "EF76 Nebulon-B escort frigate"
+    },
+    {
+        "description": "A Starship",
+        "uid": "28",
+        "attack": 9.6,
+        "name": "A-wing"
+    },
+    {
+        "description": "A Starship",
+        "uid": "27",
+        "attack": 1200,
+        "name": "Calamari Cruiser"
+    },
+    {
+        "description": "A Starship",
+        "uid": "29",
+        "attack": 16.9,
+        "name": "B-wing"
+    },
+    {
+        "description": "A Starship",
+        "uid": "31",
+        "attack": 115,
+        "name": "Republic Cruiser"
+    },
+    {
+        "description": "A Starship",
+        "uid": "32",
+        "attack": 3170,
+        "name": "Droid control ship"
+    },
+    {
+        "description": "A Starship",
+        "uid": "39",
+        "attack": 11,
+        "name": "Naboo fighter"
+    },
+    {
+        "description": "A Starship",
+        "uid": "40",
+        "attack": 76,
+        "name": "Naboo Royal Starship"
+    },
+    {
+        "description": "A Starship",
+        "uid": "43",
+        "attack": 39,
+        "name": "J-type diplomatic barge"
+    },
+    {
+        "description": "A Starship",
+        "uid": "41",
+        "attack": 26.5,
+        "name": "Scimitar"
+    },
+    {
+        "description": "A Starship",
+        "uid": "47",
+        "attack": 390,
+        "name": "AA-9 Coruscant freighter"
+    },
+    {
+        "description": "A Starship",
+        "uid": "48",
+        "attack": 8,
+        "name": "Jedi starfighter"
+    },
+    {
+        "description": "A Starship",
+        "uid": "52",
+        "attack": 752,
+        "name": "Republic Assault ship"
+    },
+    {
+        "description": "A Starship",
+        "uid": "49",
+        "attack": 47.9,
+        "name": "H-type Nubian yacht"
+    },
+    {
+        "description": "A Starship",
+        "uid": "59",
+        "attack": 1088,
+        "name": "Trade Federation cruiser"
+    },
+    {
+        "description": "A Starship",
+        "uid": "58",
+        "attack": 15.2,
+        "name": "Solar Sailer"
+    },
+    {
+        "description": "A Starship",
+        "uid": "61",
+        "attack": 18.5,
+        "name": "Theta-class T-2c shuttle"
+    },
+    {
+        "description": "A Starship",
+        "uid": "63",
+        "attack": 1137,
+        "name": "Republic attack cruiser"
+    },
+    {
+        "description": "A Starship",
+        "uid": "64",
+        "attack": 29.2,
+        "name": "Naboo star skiff"
+    },
+    {
+        "description": "A Starship",
+        "uid": "65",
+        "attack": 5.47,
+        "name": "Jedi Interceptor"
+    },
+    {
+        "description": "A Starship",
+        "uid": "66",
+        "attack": 14.5,
+        "name": "arc-170"
+    },
+    {
+        "description": "A Starship",
+        "uid": "68",
+        "attack": 825,
+        "name": "Banking clan frigte"
+    },
+    {
+        "description": "A Starship",
+        "uid": "74",
+        "attack": 6.71,
+        "name": "Belbullab-22 starfighter"
+    },
+    {
+        "description": "A Starship",
+        "uid": "75",
+        "attack": 7.9,
+        "name": "V-wing"
+    }
+]

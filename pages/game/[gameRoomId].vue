@@ -186,7 +186,7 @@ onMounted(() => {
   flex-direction: column;
   width: 100%;
   max-width: 55rem;
-  height: 50vh;
+  height: 63rem;
   align-items: center;
   border-radius: 1rem;
   margin: 3rem;
@@ -195,7 +195,6 @@ onMounted(() => {
 
   @media screen and (max-width: 580px) {
     border-radius: 0;
-
     margin: 0;
     height: 80vh;
   }
@@ -232,6 +231,7 @@ onMounted(() => {
 .my-deck,
 .enemy-deck {
   display: flex;
+  max-width: 100%;
 }
 
 .my-deck {

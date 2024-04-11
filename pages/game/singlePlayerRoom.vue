@@ -80,7 +80,7 @@ function cardDisabled(card) {
 <template>
   <div class="battle-deck">
     <v-dialog v-model="showBattleEndScreen" width="auto">
-      <v-card max-width="350" width="350" class="battle-result">
+      <v-card width="320" class="battle-result">
 
         <h1 class="battle-result-text">{{ battleResult ? 'YOU WON!' : 'YOU LOST' }}</h1>
 
@@ -127,7 +127,7 @@ function cardDisabled(card) {
   flex-direction: column;
   width: 100%;
   max-width: 55rem;
-  height: 50vh;
+  height: 63rem;
   align-items: center;
   border-radius: 1rem;
   margin: 3rem;
@@ -136,7 +136,6 @@ function cardDisabled(card) {
 
   @media screen and (max-width: 580px) {
     border-radius: 0;
-
     margin: 0;
     height: 80vh;
   }
@@ -169,6 +168,7 @@ function cardDisabled(card) {
 .my-deck,
 .enemy-deck {
   display: flex;
+  max-width: 100%;
 }
 
 .card.is-disabled {
