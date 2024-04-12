@@ -25,6 +25,13 @@ The project contains unit tests and e2e tests, made with vitest and playwright.
 - Unit tests can be run with `npm run test`
 - e2e tests can be run with `npm run e2e`
 
+## Screenshots
+
+|          |          |          |
+| -------- | -------- | -------- |
+| Landing page ![Index](docs/images/swbc-presentation-1.png)| Login page ![Login](docs/images/swbc-presentation-2.png)| Lobby with gamerooms ![Lobby](docs/images/swbc-presentation-3.png)|
+| Empty lobby ![Lobby](docs/images/swbc-presentation-4.png)| Battle screen ![Battle](docs/images/swbc-presentation-5.png)| Resource modal ![Resource](docs/images/swbc-presentation-6.png)|
+
 ## Game Modes
 
 ### Single Player Mode
