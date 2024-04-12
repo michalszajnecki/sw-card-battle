@@ -12,15 +12,25 @@ export function generateCardData(resourceType: string, cardId: string): Card {
 }
 
 function getRandomCard(resourceType: string): Card {
-    const randomIndex = Math.floor(Math.random() * staticSWData[resourceType].length);
+    const maxIndex = {
+        people: 83,
+        planets: 60,
+        starships: 36,
+    };
+    const randomIndex = Math.floor(Math.random() * maxIndex[resourceType]) + 1;
+
     return generateCardData(resourceType, randomIndex.toString());
 }
 
 export function buildDeckForPlayer(resourceType: string): Card[] {
     const deck: Card[] = [];
-    for (let index = 0; index < 5; index++) {
-        deck[index] = getRandomCard(resourceType);
-    }
+    do {
+        const newCard: Card = getRandomCard(resourceType);
+        const isCardAlreadyPresent = deck.find((card: Card) => card.uid === newCard.uid);
+        if (!isCardAlreadyPresent) {
+            deck.push(newCard);
+        }
+    } while (deck.length !== 5);
     return deck;
 }
 
