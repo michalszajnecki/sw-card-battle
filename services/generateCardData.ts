@@ -26,9 +26,11 @@ export function buildDeckForPlayer(resourceType: string): Card[] {
     const deck: Card[] = [];
     do {
         const newCard: Card = getRandomCard(resourceType);
-        const isCardAlreadyPresent = deck.find((card: Card) => card.uid === newCard.uid);
-        if (!isCardAlreadyPresent) {
-            deck.push(newCard);
+        if (newCard) {
+            const isCardAlreadyPresent = deck.find((card: Card) => card.uid === newCard.uid);
+            if (!isCardAlreadyPresent) {
+                deck.push(newCard);
+            }
         }
     } while (deck.length !== 5);
     return deck;
