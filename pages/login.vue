@@ -73,8 +73,9 @@ async function moveToLobbyFlow(userFBData) {
               data-test="signup-password"></v-text-field>
             <v-btn class="mt-2" type="submit" data-test="signup-submit" block>Submit</v-btn>
           </v-form>
-          <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" data-test="set-form-signup"
-            block>Go to login</v-btn>
+          <p class="panel-desc panel-footer-desc">Already have an account?</p>
+          <v-btn variant="outlined" type="submit" @click="togglePanels()" data-test="set-form-signup" block>Go
+            to login</v-btn>
         </v-sheet>
       </v-col>
       <v-spacer></v-spacer>
@@ -89,33 +90,17 @@ async function moveToLobbyFlow(userFBData) {
               data-test="login-password"></v-text-field>
             <v-btn class="mt-2" type="submit" data-test="login-submit" block>Submit</v-btn>
           </v-form>
-          <v-btn variant="outlined" class="mt-14" type="submit" @click="togglePanels()" data-test="set-form-login"
-            block>Go to signup</v-btn>
-
+          <p class="panel-desc panel-footer-desc">Need a new account?</p>
+          <v-btn variant="outlined" type="submit" @click="togglePanels()" data-test="set-form-login" block>Go
+            to signup</v-btn>
         </v-sheet>
       </v-col>
       <v-spacer></v-spacer>
-
     </v-row>
   </v-container>
-
-
-
-
-
 </template>
 
 <style lang="scss" scoped>
-// @keyframes showLoginPanel {
-//   0% {
-//     left: -55rem;
-//   }
-
-
-//   100% {
-//     left: 0;
-//   }
-// }
 .v-messages__message {
   font-weight: bold;
   color: #ff6a00;
@@ -131,6 +116,10 @@ async function moveToLobbyFlow(userFBData) {
   font-size: 1.8rem;
   padding: 2rem 0.5rem;
   text-align: center;
+
+  &.panel-footer-desc {
+    padding: 4rem 0.5rem 2rem;
+  }
 }
 
 .sheet-welcome {
@@ -163,8 +152,6 @@ async function moveToLobbyFlow(userFBData) {
   }
 }
 
-
-
 .form-column-login {
   top: -200rem;
   z-index: 1;
@@ -184,6 +171,5 @@ async function moveToLobbyFlow(userFBData) {
   left: 0;
   overflow: hidden;
   margin-left: 0;
-  // animation: showLoginPanel 2s forwards;
 }
 </style>
