@@ -69,7 +69,7 @@ async function moveToLobbyFlow(userFBData) {
           <v-form @submit.prevent="handleRegistration">
             <v-text-field v-model="email" :rules="[validateEmail]" label="Email"
               data-test="signup-email"></v-text-field>
-            <v-text-field v-model="password" :rules="[validatePassword]" label="Password"
+            <v-text-field type="password" v-model="password" :rules="[validatePassword]" label="Password"
               data-test="signup-password"></v-text-field>
             <v-btn class="mt-2" type="submit" data-test="signup-submit" block>Submit</v-btn>
           </v-form>
@@ -85,7 +85,7 @@ async function moveToLobbyFlow(userFBData) {
           <p class="panel-desc">Login to conquer galaxy!</p>
           <v-form @submit.prevent="handlelogin">
             <v-text-field v-model="email" :rules="[validateEmail]" label="Email" data-test="login-email"></v-text-field>
-            <v-text-field v-model="password" :rules="[validatePassword]" label="Password"
+            <v-text-field type="password" v-model="password" :rules="[validatePassword]" label="Password"
               data-test="login-password"></v-text-field>
             <v-btn class="mt-2" type="submit" data-test="login-submit" block>Submit</v-btn>
           </v-form>
