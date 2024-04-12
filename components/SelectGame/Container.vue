@@ -54,9 +54,9 @@ async function createRoom(resourceType: string) {
       <template v-slot:default>
         <p class="battle-resource-header">Select resource type!</p>
         <v-card class="battle-resource">
-          <v-btn variant="elevated" class="ms-auto" text="Planet" @click="createRoom('planet')"></v-btn>
+          <v-btn variant="elevated" class="ms-auto" text="Planet" @click="createRoom('planets')"></v-btn>
           <v-btn variant="elevated" class="ms-auto" text="People" @click="createRoom('people')"></v-btn>
-          <v-btn variant="elevated" class="ms-auto" text="Starship" @click="createRoom('starship')"></v-btn>
+          <v-btn variant="elevated" class="ms-auto" text="Starship" @click="createRoom('starships')"></v-btn>
         </v-card>
       </template>
     </v-card>
