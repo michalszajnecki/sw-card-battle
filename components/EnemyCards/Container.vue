@@ -31,7 +31,6 @@ onMounted(() => {
     top: 0;
   }
 
-
   100% {
     top: 7rem;
   }
@@ -47,12 +46,9 @@ onMounted(() => {
   box-shadow: 0 0 50px 15px #08436338;
   color: #fff;
   position: relative;
-
   margin: 2rem 0;
   transition: all ease 1s;
   animation: moveDown 2s;
-
-
 
   &.card-1 {
     animation-delay: 1s;
@@ -64,7 +60,6 @@ onMounted(() => {
     animation-delay: 2s;
     transform: rotate(185deg);
     left: 2rem;
-
   }
 
   &.card-3 {
@@ -84,6 +79,5 @@ onMounted(() => {
     transform: rotate(170deg);
     left: -4rem;
   }
-
 }
 </style>

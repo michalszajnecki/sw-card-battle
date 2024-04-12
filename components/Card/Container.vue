@@ -25,7 +25,6 @@ function imageLink(card) {
   border-radius: 1rem;
   background-size: cover;
   background-position: center;
-  // box-shadow: 0 0 50px 15px #48abe0;
   color: #fff;
   position: relative;
   user-select: none;
@@ -33,9 +32,7 @@ function imageLink(card) {
   margin: 2rem 0;
   transition: all ease 1s;
 
-
   &:hover {
-    // scale: 2;
     top: -2rem;
     z-index: 99;
   }

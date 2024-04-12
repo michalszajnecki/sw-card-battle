@@ -1,14 +1,8 @@
 <script setup lang="ts">
-
-
-useHead({
-})
-
 </script>
 
 <template>
   <div class="login-container">
-
     <h1 class="welcome-header ">STAR WARS<br>BATTLE CARDS</h1>
     <p class="welcome-intro">Welcome, brave warriors, to the galaxy-spanning arena of Star Wars Battle Cards! Prepare to
       engage in thrilling
@@ -27,8 +21,6 @@ useHead({
       associated entities. Any references to characters, names, or elements from the Star Wars universe are purely for
       entertainment and demonstration purposes. All rights to Star Wars and its associated intellectual property are
       owned by their respective copyright holders.</p>
-
-
   </div>
 </template>
 
@@ -41,7 +33,6 @@ useHead({
   position: absolute;
   top: 0;
   left: 0;
-  // animation: showLoginPanel 2s forwards;
 
   @media screen and (max-width: 580px) {
     position: static;
@@ -64,7 +55,6 @@ useHead({
 
   @media screen and (max-width: 580px) {
     margin: 5rem auto 10rem;
-
   }
 }
 

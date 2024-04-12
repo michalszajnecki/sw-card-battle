@@ -32,7 +32,7 @@ html,
 body,
 #__nuxt,
 .default-layout {
-  overflow-y: auto;
+  overflow-y: auto !important;
   margin: 0;
   width: 100%;
   min-height: 100vh;
