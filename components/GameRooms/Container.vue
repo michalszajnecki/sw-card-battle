@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { useBattleData } from '../stores/battleData';
 
-const rooms = ref()
+const rooms = ref([])
 const battleDataStore = useBattleData()
 const { getRooms, updateGameRoom } = useFirestoreDatabase()
 const { user } = useFirebaseAuth()
@@ -33,6 +33,8 @@ function formatDate(timestamp: number) {
 
 <template>
   <div class="lobby-list">
+    <p class="lobby-list-is-empty" v-if="rooms.length === 0">Lobby is empty. Host new game or play single player match.
+    </p>
     <div class="lobby-list-item" v-for="(item, i) in rooms" :key="i" :class="{
       'lobby-list-item--full': item.full
     }">
@@ -117,5 +119,16 @@ button.lobby-list-item-btn {
 button.lobby-list-item-btn span {
   padding: 0 2rem 0 1rem;
   text-transform: uppercase;
+}
+
+.lobby-list-is-empty {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #FC0858;
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0;
+  opacity: 0.7;
+  user-select: none;
 }
 </style>
