@@ -5,8 +5,18 @@
 To start developing the application locally, you should create a Firebase Project.
 
 1. Run `npm i`
-2. Create a `.env` file with Firebase credentials
+2. Create a `.env` file with Firebase credentials. Example below.
 3. Run `npm run dev`
+
+```bash
+FB_API_KEY="xxx-xxx"
+FB_AUTH_DOMAIN='xyz.firebaseapp.com'
+FB_PROJECT_ID='xyz'
+FB_STORAGE_BUCKET='xyz.appspot.com'
+FB_MESSAGING_SENDER_ID='123'
+FB_APP_ID='1:123:123:123'
+FB_MEASUREMENT_ID='G-123'
+```
 
 ## Tests
 
